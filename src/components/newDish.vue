@@ -33,11 +33,14 @@ export default {
 <style>
 .dishContainer {
   width: 1400px;
+  height: 150px;
 }
 
 .mask {
   width: 700px;
   overflow: hidden;
   background-color: #f5f5f5;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 </style>

@@ -35,13 +35,9 @@ export default {
 <style>
 .center {
   width: 700px;
-  height: 300px;
-  background-color: lightgreen;
 }
 
 .content {
   width: 100%;
-  height: 300px;
-  background-color: lightslategray;
 }
 </style>

@@ -34,8 +34,8 @@ export default {
 
 <style>
 img {
-  width: 780px;
-  height: 283px;
+  width: 100%;
+  height: 250px;
   margin-top: 8px;
 
 }
