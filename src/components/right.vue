@@ -8,10 +8,9 @@ export default {};
 
 <style>
 .right {
-  float: left;
-  width: 100px;
+  width: 300px;
   height: 300px;
   background-color: lightcoral;
-  margin-left: -100px;
+  flex: 1;
 }
 </style>

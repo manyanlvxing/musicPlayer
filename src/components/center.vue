@@ -2,18 +2,22 @@
   <div class="center">
     <div class="content">
       <banner v-if="bannerUrls.length > 0" :imgUrls="bannerUrls"></banner>
+      <br />
+      <newDish></newDish>
     </div>
   </div>
 </template>
 
 <script>
 import banner from "./banner.vue";
-import {getBanner} from '../api/api';
+import newDish from "./newDish.vue";
 
+import { getBanner } from "../api/api";
 
 export default {
   components: {
     banner,
+    newDish,
   },
   data() {
     return {
@@ -30,14 +34,13 @@ export default {
 
 <style>
 .center {
-  float: left;
-  width: 100%;
+  width: 700px;
   height: 300px;
   background-color: lightgreen;
 }
 
 .content {
-  margin: 0 100px;
+  width: 100%;
   height: 300px;
   background-color: lightslategray;
 }

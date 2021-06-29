@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <baseHead></baseHead>
-    <center></center>
-    <left></left>
-    <right></right>
+    <div class="container">
+      <left></left>
+      <center></center>
+      <right></right>
+    </div>
     <base-footer></base-footer>
     <!-- <banner v-if="bannerUrls.length > 0" :imgUrls="bannerUrls"></banner> -->
   </div>
@@ -80,4 +82,9 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+.container{
+  display: flex;
+}
+
 </style>
