@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { getNewDishs } from "../api/api";
+import { getNewDishs, getTopDetail } from "../api/api";
 import dishCard from "./dishCard.vue";
 export default {
   data() {
@@ -24,8 +24,10 @@ export default {
   },
   created() {
     getNewDishs().then((res) => {
-      this.dishs = res.data.monthData.slice(10, 20);
+      this.dishs = res.data.albums.slice(0, 10);
     });
+
+    getTopDetail().then((res) => console.log(res));
   },
 };
 </script>

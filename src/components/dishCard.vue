@@ -1,13 +1,15 @@
 <template>
   <li>
     <img class="dishCard" :src="imgUrl" alt="图片加载失败" />
-    <a href="" class="maskA mask-cover"></a>
+    <a :href="ablumUrl" class="maskA mask-cover"></a>
     <p class="albumName">{{ albumName }}</p>
     <p class="artistName">{{ artistName }}</p>
   </li>
 </template>
 
 <script>
+import { getAlbumDetail } from "../api/api";
+
 export default {
   props: {
     info: Object,
@@ -24,6 +26,19 @@ export default {
     },
     artistName() {
       return this.info.artist.name;
+    },
+    ablumID() {
+      return this.info.id;
+    },
+    ablumUrl() {
+      return `/ablum?id=${this.info.id}`;
+    },
+  },
+  methods: {
+    clickAblumDetail() {
+      // console.log("clickAblumDetail", this.info);
+
+      getAlbumDetail(this.info.id).then((res) => console.log(res));
     },
   },
 };
@@ -60,7 +75,7 @@ li {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif ;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .artistName {
   font-size: 12px;
@@ -68,6 +83,6 @@ li {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif ;
+  font-family: Arial, Helvetica, sans-serif;
 }
 </style>

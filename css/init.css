@@ -4,8 +4,32 @@
     box-sizing: border-box;
 }
 
-.mask-cover{
+.mask-cover {
     background-image: url('../src/assets/coverall.png');
     background-repeat: no-repeat;
     background-position: 0px -570px;
+}
+
+
+
+.span-cover {
+    background-image: url('../src/assets/coverall.png');
+    background-repeat: no-repeat;
+    background-position: 0px -986px;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.small{
+    font-size: 12px;
+}
+
+.text-start{
+    text-align: start;
 }

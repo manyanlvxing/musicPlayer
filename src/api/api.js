@@ -7,5 +7,17 @@ export function getBanner() {
 }
 
 export function getNewDishs() {
-    return axios.get('/top/album?offset=0&limit=10')
+    return axios.get('/album/newest')
+}
+
+export function getTopDetail() {
+    return axios.get('/toplist');
+}
+
+export function getAlbumDetail(id) {
+    return axios.get(`/album?id=${id}`);
+}
+
+export function getSongDetail(id) {
+    return axios.get(`/song/detail?ids=${id}`);
 }

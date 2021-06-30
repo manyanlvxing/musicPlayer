@@ -30,9 +30,14 @@ const routes = [
         props: (route) => ({index: route.params.index})
     },
     {
+        //专辑详情界面
+        path: '/ablum',
+        component: () => import('../pages/albumPage.vue')
+    },
+    {
         //未匹配路径默认页面
         path: '*',
-        component: () => import('../components/home.vue')
+        component: () => import('../pages/homePage.vue')
     }
 ]
 
