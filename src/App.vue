@@ -7,6 +7,7 @@
       <right></right>
     </div>
     <base-footer></base-footer>
+    <playContrl></playContrl>
     <!-- <banner v-if="bannerUrls.length > 0" :imgUrls="bannerUrls"></banner> -->
   </div>
 </template>
@@ -17,6 +18,7 @@ import baseFooter from "./components/footer.vue";
 import left from "./components/left.vue";
 import right from "./components/right.vue";
 import center from "./components/center.vue";
+import playContrl from "./components/control/playControl.vue";
 
 export default {
   name: "App",
@@ -31,6 +33,7 @@ export default {
     left,
     right,
     center,
+    playContrl
     // banner,
   },
   methods: {
@@ -81,10 +84,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  min-width: 800px;
 }
 
-.container{
+.container {
+  width: 100%;
   display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  background-image: url(https://p6.music.126.net/obj/wo3DlcOGw6DClTvDisK1/9567018575/92e5/fd7f/2b22/068f21135cbcbdad6a03e223a0a56fe2.jpg);
 }
 
+.center {
+  background-color: #fff;
+}
 </style>

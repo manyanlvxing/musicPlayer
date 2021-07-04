@@ -32,9 +32,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .center {
-  width: 700px;
+  width: 730px;
 }
 
 .content {

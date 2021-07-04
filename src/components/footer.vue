@@ -6,9 +6,9 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .footer {
   height: 40px;
-  background-color: brown;
+  background-color: lightgreen;
 }
 </style>

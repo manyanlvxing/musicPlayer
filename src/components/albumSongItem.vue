@@ -4,11 +4,12 @@
     <div class="small song-name">{{ songInfo.name }}</div>
     <div class="small song-time">{{ songTime }}</div>
     <div class="small artist-name">{{ songInfo.ar[0].name }}</div>
+    <button @click="clickPlay">播放</button>
   </li>
 </template>
 
 <script>
-import { getSongDetail } from "../api/api";
+import { getSongDetail, getSongUrl } from "../api/api";
 import { formatTime } from "../utils";
 
 export default {
@@ -25,10 +26,22 @@ export default {
       return formatTime(new Date(this.songInfo.dt), "mm:ss");
     },
   },
+  methods: {
+    clickPlay() {
+      getSongUrl(this.songInfo.id).then((res) => {
+        console.log(res);
+        // this.$store.commit('setCurrPlayingInfo',res.data.data[0].url)
+        this.$store.commit(
+          "setCurrPlayingInfo",
+          `https://music.163.com/song/media/outer/url?id=${this.songInfo.id}.mp3`
+        );
+      });
+    },
+  },
 };
 </script>
 
-<style>
+<style scoped>
 .songLi {
   overflow: hidden;
   height: 32px;

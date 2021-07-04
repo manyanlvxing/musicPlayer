@@ -44,7 +44,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .dishCard {
   width: 100px;
   height: 100px;

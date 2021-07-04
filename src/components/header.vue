@@ -1,16 +1,33 @@
 <template>
-  <div class="header"></div>
+  <div class="header">
+    <navHeader></navHeader>
+    <navWrap></navWrap>
+  </div>
 </template>
 
 <script>
+import navWrap from "./navWrap.vue";
+import navHeader from "./navHeader.vue";
+
 export default {
   name: "base-head",
+  components: {
+    navWrap,
+    navHeader
+  },
+  data() {
+    return {
+      titls: ["推荐", "排行榜", "歌单", "主播电台", "歌手", "新碟上架"],
+    };
+  },
 };
 </script>
 
-<style>
+<style scoped>
 .header {
-  height: 40px;
-  background-color: brown;
+  height: 34px;
+  /* background-color: #c20c0c;
+  border: 1px solid #a40011; */
 }
 </style>
+

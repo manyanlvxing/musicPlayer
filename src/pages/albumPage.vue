@@ -41,9 +41,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .albumContent {
   width: 700px;
+  background-color: #fff;
   /* border: 1px solid black; */
 }
 </style>

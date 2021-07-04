@@ -34,7 +34,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 ul {
   border: 1px solid lightgray;
 }

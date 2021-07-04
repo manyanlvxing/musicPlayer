@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 .mask-cover {
@@ -33,3 +32,5 @@ a{
 .text-start{
     text-align: start;
 }
+
+.clear-fix::after{content:".";display:block;height:0;clear:both;visibility:hidden}

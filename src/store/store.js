@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
         count: 1,
-        isPlaying: false,
+        isPlaying: true,
         currMusic: null
     },
     mutations: {

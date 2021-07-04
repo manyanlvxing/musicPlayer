@@ -16,7 +16,11 @@
 
     <div class="album-des">
       <h3 class="small">专辑介绍:</h3>
-      <p class="des-p small text-start" v-for="(val, index) in desList" :key="index">
+      <p
+        class="des-p small text-start"
+        v-for="(val, index) in desList"
+        :key="index"
+      >
         {{ val }}
       </p>
     </div>
@@ -47,14 +51,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .ablumheader {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 700px;
   height: 200px;
-  border: 1px solid lightblue;
+  border-bottom: 1px solid lightgrey;
 }
 
 .ablumImg {
@@ -88,8 +92,12 @@ export default {
   margin-top: 10px;
 }
 
-.des-p{
+.des-p {
   padding-left: 10px;
   margin: 5px 0;
+}
+
+.album-des {
+  border-bottom: 1px solid lightgrey;
 }
 </style>

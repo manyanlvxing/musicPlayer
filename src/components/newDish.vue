@@ -32,7 +32,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .dishContainer {
   width: 1400px;
   height: 150px;
