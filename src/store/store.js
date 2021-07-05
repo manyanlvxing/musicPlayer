@@ -7,7 +7,8 @@ export const store = new Vuex.Store({
     state: {
         count: 1,
         isPlaying: true,
-        currMusic: null
+        currMusic: null,
+        currSongInfo: null
     },
     mutations: {
         addCount(state) {
@@ -18,6 +19,9 @@ export const store = new Vuex.Store({
         },
         setCurrPlayingInfo(state, info) {
             state.currMusic = info;
+        },
+        setSongInfo(state, info) {
+            state.currSongInfo = info;
         }
     }
 

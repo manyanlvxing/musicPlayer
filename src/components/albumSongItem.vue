@@ -35,6 +35,8 @@ export default {
           "setCurrPlayingInfo",
           `https://music.163.com/song/media/outer/url?id=${this.songInfo.id}.mp3`
         );
+
+        this.$store.commit("setSongInfo", this.songInfo);
       });
     },
   },

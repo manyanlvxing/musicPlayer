@@ -2,18 +2,81 @@
   <div class="playContrl player-background-img">
     <div class="player-left"></div>
     <div class="left player-background-img"></div>
-    <div class="play player-background-img"></div>
+    <div class="play player-background-img" @click="startPlay"></div>
     <div class="right player-background-img"></div>
+    <div class="albumAvatar">
+      <img
+        :src="$store.state.currSongInfo && $store.state.currSongInfo.al.picUrl"
+        alt=""
+      />
+    </div>
+
     <div class="bg">
+      <span class="songname">{{albumName}}</span>
+      <span class="artistname">{{artistName}}</span>
+
       <div class="bar-black player-bar-img"></div>
-      <!-- <div class="bar-red player-bar-img"></div> -->
+      <div class="bar-red player-bar-img"></div>
+
+      <span>{{ currTime }}/{{ duration }}</span>
     </div>
     <div class="player-right"></div>
+    <audio ref="playControl" :src="currMusic"></audio>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    startPlay() {
+      this.playMusic();
+    },
+    playMusic() {
+      let audio = this.$refs.playControl;
+
+      audio.oncanplay = function () {
+        console.log("canplay");
+        audio.play();
+      };
+    },
+  },
+
+  computed: {
+    isPlaying() {
+      return this.$store.state.isPlaying;
+    },
+    currMusic() {
+      return this.$store.state.currMusic;
+    },
+    currSongInfo() {
+      return this.$store.state.currSongInfo;
+    },
+    currTime() {
+      return 1;
+    },
+    duration() {
+      return 2;
+    },
+    albumName() {
+      return this.currSongInfo.name;
+    },
+    artistName() {
+      return this.currSongInfo.ar[0].name;
+    },
+  },
+  watch: {
+    isPlaying(oldVal, nowVal) {
+      if (!oldVal && nowVal) {
+        this.$refs.playControl.play();
+      } else {
+        // this.$refs.playControl.
+      }
+    },
+    currMusic() {
+      this.playMusic();
+    },
+  },
+};
 </script>
 
 <style lang='less'>
@@ -87,12 +150,43 @@ export default {};
   top: 23px;
 }
 
-.player-left{
-    width: 100px;
-    flex: 1;
+.player-left {
+  width: 100px;
+  flex: 1;
 }
-.player-right{
-    width: 100px;
-    flex: 1;
+.player-right {
+  width: 100px;
+  flex: 1;
+}
+
+.albumAvatar {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  margin-top: 10px;
+}
+
+.albumAvatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.bg {
+  text-align: start;
+}
+
+.bg .songname {
+  line-height: 33px;
+  color: #e8e8e8;
+  font-size: 10px;
+  text-shadow: 0 1px 0 #171717;
+  margin-right: 20px;
+}
+
+.bg .artistname {
+  color: #9b9b9b;
+  line-height: 33px;
+  font-size: 10px;
+  text-shadow: 0 1px 0 #171717;
 }
 </style>
