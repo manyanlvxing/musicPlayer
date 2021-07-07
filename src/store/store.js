@@ -23,6 +23,11 @@ export const store = new Vuex.Store({
         setSongInfo(state, info) {
             state.currSongInfo = info;
         }
+    },
+    getters: {
+        picUrl(state) {
+            return state.currSongInfo ? state.currSongInfo.al.picUrl : '';
+        }
     }
 
 })

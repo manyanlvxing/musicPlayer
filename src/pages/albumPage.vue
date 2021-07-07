@@ -44,7 +44,7 @@ export default {
 <style scoped>
 .albumContent {
   width: 700px;
-  background-color: #fff;
+  background-color: black;
   /* border: 1px solid black; */
 }
 </style>

@@ -25,3 +25,7 @@ export function getSongDetail(id) {
 export function getSongUrl(id) {
     return axios.get(`/song/url?id=${id}`);
 }
+
+export function getPlayerListDetail(id) {
+    return axios.get(`/playlist/detail?id=${id}`);
+}

@@ -4,6 +4,8 @@
       <banner v-if="bannerUrls.length > 0" :imgUrls="bannerUrls"></banner>
       <br />
       <newDish></newDish>
+      <br />
+      <topList></topList>
     </div>
   </div>
 </template>
@@ -11,6 +13,7 @@
 <script>
 import banner from "../components/banner.vue";
 import newDish from "../components/newDish.vue";
+import topList from "../components/topList.vue";
 
 import { getBanner } from "../api/api";
 
@@ -18,6 +21,7 @@ export default {
   components: {
     banner,
     newDish,
+    topList
   },
   data() {
     return {
@@ -40,6 +44,4 @@ export default {
 .content {
   width: 100%;
 }
-
-
 </style>

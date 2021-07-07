@@ -4,7 +4,7 @@
     <div class="small song-name">{{ songInfo.name }}</div>
     <div class="small song-time">{{ songTime }}</div>
     <div class="small artist-name">{{ songInfo.ar[0].name }}</div>
-    <button @click="clickPlay">播放</button>
+    <span class="play-icon iconfont icon-play" @click="clickPlay"></span>
   </li>
 </template>
 
@@ -44,6 +44,8 @@ export default {
 </script>
 
 <style scoped>
+@import url("../../css/iconfont.css");
+
 .songLi {
   overflow: hidden;
   height: 32px;
@@ -78,6 +80,11 @@ export default {
   text-align: center;
   vertical-align: middle;
   height: 32px;
+  line-height: 32px;
+}
+
+.play-icon {
+  font-size: 25px;
   line-height: 32px;
 }
 </style>

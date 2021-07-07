@@ -7,7 +7,7 @@
       <right></right>
     </div>
     <base-footer></base-footer>
-    <playContrl></playContrl>
+    <playContrl v-show="$store.state.currSongInfo != null"></playContrl>
     <!-- <banner v-if="bannerUrls.length > 0" :imgUrls="bannerUrls"></banner> -->
   </div>
 </template>
@@ -33,7 +33,7 @@ export default {
     left,
     right,
     center,
-    playContrl
+    playContrl,
     // banner,
   },
   methods: {
@@ -75,7 +75,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import url("../css/init.css");
 
 #app {
