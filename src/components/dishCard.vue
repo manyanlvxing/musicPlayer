@@ -1,9 +1,11 @@
 <template>
   <li>
-    <img class="dishCard" :src="imgUrl" alt="图片加载失败" />
-    <a :href="ablumUrl" class="maskA mask-cover"></a>
-    <p class="albumName">{{ albumName }}</p>
-    <p class="artistName">{{ artistName }}</p>
+    <div class="disCardContainer">
+      <img class="dishCard" :src="imgUrl" alt="图片加载失败" />
+      <a :href="ablumUrl" class="maskA mask-cover"></a>
+      <p class="albumName">{{ albumName }}</p>
+      <p class="artistName">{{ artistName }}</p>
+    </div>
   </li>
 </template>
 
@@ -45,20 +47,25 @@ export default {
 </script>
 
 <style scoped>
+.disCardContainer {
+  height: 150px;
+  margin-top: 30px;
+}
+
 .dishCard {
   width: 100px;
   height: 100px;
+  /* margin-top: 10px; */
 }
 
 li {
   float: left;
   list-style: none;
   display: block;
-  margin: 0 11px;
-  position: relative;
   width: 118px;
-  height: 150px;
   text-align: start;
+  top: 0;
+  position: relative;
 }
 
 .maskA {
@@ -66,7 +73,7 @@ li {
   width: 118px;
   height: 100px;
   left: 0;
-  top: 0;
+  top: 30px;
 }
 
 .albumName {

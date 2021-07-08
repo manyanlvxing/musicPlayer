@@ -1,16 +1,33 @@
 <template>
-  <ul class="top-list-ul">
-    <li class="small clear-fix" v-for="(val, index) in songsInfo" :key="index">
-      <div>{{ index + 1 }}</div>
-      <div>{{ val.data.songs[0].name }}</div>
-      <div class="control">
-        <span
-          @click="clickSong(val)"
-          class="top-list-play iconfont icon-play"
-        ></span>
+  <dl>
+    <dt>
+      <div class="top-list-img-container">
+        <img :src="topListInfo.coverImgUrl" alt="图片加载失败" />
       </div>
-    </li>
-  </ul>
+      <div class="top-list-title-container">
+        <span>{{ topListInfo.name }}</span>
+      </div>
+    </dt>
+    <dd>
+      <ol class="top-list-ul">
+        <li
+          class="small clear-fix"
+          v-for="(val, index) in songsInfo"
+          :key="index"
+        >
+          <!-- 123456 -->
+          <div>{{ index + 1 }}</div>
+          <div>{{ val.data.songs[0].name }}</div>
+          <div class="control">
+            <span
+              @click="clickSong(val)"
+              class="top-list-play iconfont icon-play"
+            ></span>
+          </div>
+        </li>
+      </ol>
+    </dd>
+  </dl>
 </template>
 
 <script>
@@ -58,42 +75,73 @@ export default {
 <style scoped>
 @import url("../../css/iconfont.css");
 
-.top-list-ul {
-  float: left;
+dl {
   width: 240px;
-  text-align: start;
-  margin: 0 1px;
+  /* text-align: start; */
+  /* flex-grow: 1; */
+}
+
+dt {
+  height: 120px;
+}
+
+dt div {
+  float: left;
+}
+
+dt div img {
+  width: 80px;
+  height: 80px;
+}
+
+.top-list-header {
+  height: 30px;
+  background-color: lightpink;
 }
 
 .top-list-ul li {
   position: relative;
   width: 100%;
-  height: 20px;
-  line-height: 20px;
+  height: 32px;
+  line-height: 32px;
+  color: rgb(51, 51, 51);
 }
+
+.top-list-ul li:hover {
+  background-color: lightblue;
+}
+
 .top-list-ul li div {
   float: left;
 }
 
 .top-list-ul li div:nth-child(1) {
-  width: 20px;
+  width: 32px;
   padding: 0 5px 0px 20px;
+  font-size: 16px;
+}
+
+.top-list-ul li:nth-child(-n + 3) div:nth-child(1) {
+  color: rgb(193, 13, 12);
 }
 
 .control {
   position: absolute;
-  right: 0px;
-
+  right: 10px;
   top: 0px;
-
-  /* border: 1px solid green; */
 }
-
-/* .top-list-ul li:hover {
-  visibility: visible;
-} */
 
 .top-list-play {
   font-size: 25px;
+}
+
+.top-list-img-container {
+  margin: 20px 20px 8px 20px;
+}
+
+.top-list-title-container {
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 20px;
 }
 </style>
