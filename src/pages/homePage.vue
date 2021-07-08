@@ -21,7 +21,7 @@ export default {
   components: {
     banner,
     newDish,
-    topList
+    topList,
   },
   data() {
     return {
@@ -39,6 +39,7 @@ export default {
 <style scoped>
 .center {
   width: 730px;
+  border: 1px solid #d3d3d3;
 }
 
 .content {

@@ -92,7 +92,8 @@ export default {
   display: flex;
   justify-content: space-around;
   flex-wrap: nowrap;
-  background-image: url(https://p6.music.126.net/obj/wo3DlcOGw6DClTvDisK1/9567018575/92e5/fd7f/2b22/068f21135cbcbdad6a03e223a0a56fe2.jpg);
+  border: 1px solid #d3d3d3;
+  /* background-image: url(https://p6.music.126.net/obj/wo3DlcOGw6DClTvDisK1/9567018575/92e5/fd7f/2b22/068f21135cbcbdad6a03e223a0a56fe2.jpg); */
 }
 
 .center {

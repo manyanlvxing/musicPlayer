@@ -82,29 +82,7 @@ export default {
       this.playMove();
     },
     playMove() {
-      // if (Date.now() - this.lastUpdateStamp > 16) {
-      //   this.lastUpdateStamp = Date.now();
-      //   this.dis += 10;
-      //   this.disList.forEach((dis, i, arr) => {
-      //     let val = arr[i];
-      //     val -= 10;
-      //     arr.splice(i, 1, val);
-      //   });
-      //   let min = Math.min(...this.disList);
-      //   if (min <= -200) {
-      //     for (let i = 0; i < this.disList.length; i++) {
-      //       if (this.disList[i] == min) {
-      //         this.disList.splice(i, 1, min + 1180);
-      //         break;
-      //       }
-      //     }
-      //   }
-      // }
-      // if (this.dis >= 590) {
-      //   this.dis = 0;
-      //   return;
-      // }
-      // requestAnimationFrame(this.playMove.bind(this));
+      this.isShowBehind =!this.isShowBehind;
     },
   },
 };
@@ -153,7 +131,7 @@ export default {
 
 .behind-enter-active,
 .behind-leave-active {
-  transition: all 2s;
+  transition: all 1s;
 }
 
 .after-enter,
@@ -163,6 +141,6 @@ export default {
 
 .after-enter-active,
 .after-leave-active {
-  transition: all 2s;
+  transition: all 1s;
 }
 </style>

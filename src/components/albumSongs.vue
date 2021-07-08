@@ -4,12 +4,12 @@
       <span>包含歌曲列表</span>
       <span>{{ albumSongs.length }}首歌</span>
     </div>
-     <div class="li-header">
-        <div class="div1"></div>
-        <div class="div2">歌曲标题</div>
-        <div class="div3">时长</div>
-        <div class="div4">歌手</div>
-      </div>
+    <div class="li-header">
+      <div class="div1"></div>
+      <div class="div2">歌曲标题</div>
+      <div class="div3">时长</div>
+      <div class="div4">歌手</div>
+    </div>
     <ul>
       <albumSongItem
         v-for="(info, index) in albumSongs"
@@ -36,11 +36,11 @@ export default {
 
 <style scoped>
 ul {
-  border: 1px solid lightgray;
+  border: 1px solid #d9d9d9;
 }
 
 ul > li:nth-of-type(odd) {
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(247, 247, 247);
 }
 .li-header div {
   font-size: 12px;
@@ -52,8 +52,8 @@ ul > li:nth-of-type(odd) {
 .li-header {
   display: flex;
   height: 40px;
-  border: 1px solid lightgrey;
-  background-color: rgb(240, 240, 240);;
+  border: 1px solid rgb(217, 217, 217);
+  background-color: rgb(247, 247, 247);
 }
 
 .div1 {
@@ -90,9 +90,8 @@ ul > li:nth-of-type(odd) {
   color: rgb(51, 51, 51);
 }
 
-.songs-title{
-    height: 40px;
-    line-height: 40px;
+.songs-title {
+  height: 40px;
+  line-height: 40px;
 }
-
 </style>

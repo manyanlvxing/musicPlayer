@@ -1,7 +1,7 @@
 <template>
   <div class="navHeader">
     <ul>
-      <li v-for="(val, index) in titles" :key="index">{{ val }}</li>
+      <!-- <li v-for="(val, index) in titles" :key="index">{{ val }}</li> -->
     </ul>
   </div>
 </template>
