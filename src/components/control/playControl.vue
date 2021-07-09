@@ -16,6 +16,7 @@
       <span class="songname">{{ albumName }}</span>
       <span class="artistname">{{ artistName }}</span>
 
+      <div class="bar-circal"></div>
       <div class="bar-black player-bar-img"></div>
       <div class="bar-red player-bar-img" :style="{ width: currWidth }"></div>
 
@@ -65,7 +66,7 @@ export default {
       currMusic: "currMusic",
       currSongInfo: "currSongInfo",
     }),
-    ...mapGetters(["picUrl"]),
+    ...mapGetters(["picUrl", "albumName", "artistName"]),
     currTime() {
       return (
         (this.$refs.playControl && this.$refs.playControl.currentTime) || 0
@@ -73,12 +74,6 @@ export default {
     },
     duration() {
       return this.$refs.playControl && this.$refs.playControl.duration;
-    },
-    albumName() {
-      return this.currSongInfo ? this.currSongInfo.name : "";
-    },
-    artistName() {
-      return this.currSongInfo ? this.currSongInfo.ar[0].name : "";
     },
     currProgress() {
       return isNaN(this.duration) ? 0 : this.currTime / this.duration;
@@ -228,5 +223,12 @@ export default {
   line-height: 33px;
   font-size: 10px;
   text-shadow: 0 1px 0 #171717;
+}
+
+.bar-circal {
+  width: 22px;
+  height: 24px;
+  background-image: url("../../assets/iconall.png");
+  background-position: 0px -250px;
 }
 </style>

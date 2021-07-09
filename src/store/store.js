@@ -27,7 +27,13 @@ export const store = new Vuex.Store({
     getters: {
         picUrl(state) {
             return state.currSongInfo ? state.currSongInfo.al.picUrl : '';
-        }
+        },
+        albumName(state) {
+            return state.currSongInfo ? state.currSongInfo.name : "";
+        },
+        artistName(state) {
+            return state.currSongInfo ? state.currSongInfo.ar[0].name : "";
+        },
     }
 
 })

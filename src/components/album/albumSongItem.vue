@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import { getSongDetail, getSongUrl } from "../api/api";
-import { formatTime } from "../utils";
+import { getSongDetail, getSongUrl } from "../../api/api";
+import { formatTime } from "../../utils";
 
 export default {
   props: ["songInfo", "index"],
@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style scoped>
-@import url("../../css/iconfont.css");
+@import url("../../../css/iconfont.css");
 
 .songLi {
   overflow: hidden;

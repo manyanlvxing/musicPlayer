@@ -11,8 +11,8 @@
 <script>
 import { getAlbumDetail } from "../api/api";
 
-import albumheader from "../components/albumHeader.vue";
-import albumSongs from "../components/albumSongs.vue";
+import albumheader from "../components/album/albumHeader.vue";
+import albumSongs from "../components/album/albumSongs.vue";
 
 export default {
   data() {

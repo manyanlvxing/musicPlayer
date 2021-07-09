@@ -1,5 +1,16 @@
 <template>
-  <img :src="currUrl" alt="图片加载失败" :style="{ opacity: customOpacity }" />
+  <div>
+    <transition-group name="fade">
+      <img
+        v-for="(val, index) in imgUrls"
+        :key="val.targetId"
+        :src="val.imageUrl"
+        alt="图片加载失败"
+        v-show="currIndex == index"
+        @click="clickBanner(val)"
+      />
+    </transition-group>
+  </div>
 </template>
 
 <script>
@@ -7,55 +18,27 @@ export default {
   data() {
     return {
       currIndex: 0,
-      customOpacity: 1,
     };
   },
   props: ["imgUrls"],
   methods: {
     schedule() {
       setTimeout(() => {
-        this.changeImg();
+        this.currIndex = ++this.currIndex % this.imgUrls.length;
+        this.schedule();
       }, 3000);
     },
-    changeImg() {
-      this.beforeImgChanged();
-    },
-    beforeImgChanged() {
-      this.playFadeOut(this.onFadeOut.bind(this));
-    },
-    afterImgChanged() {
-      this.playFadeIn();
-    },
-    onFadeOut() {
-      this.currIndex = ++this.currIndex % this.imgUrls.length;
-      this.schedule();
-
-      this.afterImgChanged();
-    },
-    fadeOut(finishcb) {
-      this.customOpacity -= 0.02;
-      if (this.customOpacity > 0) {
-        this.playFadeOut(finishcb);
+    clickBanner(info) {
+      if (info.targetType == 1) {
+        console.log("单曲");
       } else {
-        finishcb && finishcb();
+        this.$router.push({
+          path: "/ablum",
+          query: {
+            id: info.targetId,
+          },
+        });
       }
-    },
-    fadeIn() {
-      this.customOpacity += 0.02;
-      if (this.customOpacity < 1) {
-        this.playFadeIn();
-      }
-    },
-    playFadeOut(finishcb) {
-      requestAnimationFrame(this.fadeOut.bind(this, finishcb));
-    },
-    playFadeIn() {
-      requestAnimationFrame(this.fadeIn.bind(this));
-    },
-  },
-  computed: {
-    currUrl() {
-      return this.imgUrls[this.currIndex].imageUrl;
     },
   },
   created() {
@@ -66,8 +49,30 @@ export default {
 
 <style scoped>
 img {
-  width: 100%;
-  height: 250px;
+  position: absolute;
+  width: 730px;
+  height: 238px;
+  left: 0;
+  top: 0;
 }
 
+div {
+  position: relative;
+  width: 730px;
+  height: 238px;
+  overflow: hidden;
+}
+
+.fade-enter {
+  transform: translateX(730px);
+}
+
+.fade-leave-to {
+  transform: translateX(-730px);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 1s;
+}
 </style>

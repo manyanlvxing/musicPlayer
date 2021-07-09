@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import albumSongItem from "../components/albumSongItem.vue";
+import albumSongItem from "./albumSongItem.vue";
 
 export default {
   props: {
