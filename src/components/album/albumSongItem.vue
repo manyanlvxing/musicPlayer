@@ -1,11 +1,28 @@
 <template>
-  <li class="songLi">
-    <div class="small span-index">{{ index + 1 }}</div>
-    <div class="small song-name">{{ songInfo.name }}</div>
-    <div class="small song-time">{{ songTime }}</div>
-    <div class="small artist-name">{{ songInfo.ar[0].name }}</div>
-    <span class="play-icon iconfont icon-play" @click="clickPlay"></span>
-  </li>
+  <tr>
+    <td>
+      <div class="small span-index">
+        <span>{{ index + 1 }}</span>
+        <div class="play-icon" @click="clickPlay"></div>
+      </div>
+    </td>
+    <td>
+      <div class="small song-name">
+        <span>{{ songInfo.name }}</span>
+      </div>
+    </td>
+    <td>
+      <div class="small song-time">
+        <span>{{ songTime }}</span>
+      </div>
+    </td>
+    <td>
+      <div class="small artist-name">
+        <span>{{ songInfo.ar[0].name }}</span>
+      </div>
+      <!-- <span class="play-icon iconfont icon-play" @click="clickPlay"></span> -->
+    </td>
+  </tr>
 </template>
 
 <script>
@@ -51,7 +68,14 @@ export default {
   height: 32px;
 }
 
-.span-index {
+table tr td {
+  padding: 6px 10px;
+  line-height: 18px;
+  text-align: left;
+  color: rgb(51, 51, 51);
+}
+
+/* .span-index {
   float: left;
   width: 100px;
   text-align: center;
@@ -81,10 +105,19 @@ export default {
   vertical-align: middle;
   height: 32px;
   line-height: 32px;
+} */
+
+.span-index{
+  position: relative;
 }
 
 .play-icon {
-  font-size: 25px;
-  line-height: 32px;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  background-image: url("../../assets/table.png");
+  background-position: 0 -103px;
+  left: 30px;
+  top: 0;
 }
 </style>

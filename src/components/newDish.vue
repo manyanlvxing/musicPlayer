@@ -95,7 +95,7 @@ export default {
   width: 590px;
   height: 186px;
   overflow: hidden;
-  margin: 0 18px;
+  margin: 0 18px 0px 18px;
 }
 
 .dishContainer {
