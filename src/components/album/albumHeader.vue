@@ -7,22 +7,29 @@
       </div>
 
       <div class="album-info">
-        <p>{{ this.albumInfo.name }}</p>
-        <p>歌手:{{ this.albumInfo.artist.name }}</p>
-        <p>发行时间:{{ publishTime }}</p>
-        <p>发行公司:{{ this.albumInfo.company }}</p>
+        <p class="info-name">{{ this.albumInfo.name }}</p>
+        <p class="info-artist">歌手: {{ this.albumInfo.artist.name }}</p>
+        <p class="info-date">发行时间: {{ publishTime }}</p>
+        <p class="info-comany">发行公司: {{ this.albumInfo.company }}</p>
       </div>
     </div>
 
     <div class="album-des">
-      <h3 class="small">专辑介绍:</h3>
+      <h3>专辑介绍:</h3>
       <p
-        class="des-p small text-start"
         v-for="(val, index) in desList"
         :key="index"
+        v-show="index < 6 || (index >= 6 && !isHide)"
       >
         {{ val }}
       </p>
+      <div class="spread-content">
+        <span @click="clickSpread">{{ isHide ? "展开" : "收回" }}</span>
+        <div @click="clickSpread" :class="iconClass"></div>
+      </div>
+      <!-- <p style="white-space: pre-line">
+        {{ desList }}
+      </p> -->
     </div>
   </div>
 </template>
@@ -30,7 +37,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      isHide: true,
+    };
   },
   props: {
     albumInfo: Object,
@@ -45,7 +54,18 @@ export default {
         .replaceAll("/", "-");
     },
     desList() {
-      return this.albumInfo.description.split(" ");
+      return this.albumInfo.description.split("\n").filter((val) => val != "");
+    },
+    iconClass() {
+      return {
+        "icon-spread": this.isHide,
+        "icon-back": !this.isHide,
+      };
+    },
+  },
+  methods: {
+    clickSpread() {
+      this.isHide = !this.isHide;
     },
   },
 };
@@ -55,10 +75,10 @@ export default {
 .ablumheader {
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 700px;
+  align-items: flex-start;
+  width: 640px;
   height: 200px;
-  border-bottom: 1px solid lightgrey;
+  margin-bottom: 15px;
 }
 
 .ablumImg {
@@ -86,6 +106,7 @@ export default {
   height: 177px;
   text-align: start;
   font-size: 12px;
+  color: rgb(102, 102, 102);
 }
 
 .album-info p {
@@ -98,6 +119,42 @@ export default {
 }
 
 .album-des {
-  border-bottom: 1px solid lightgrey;
+  font-size: 12px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.album-des p {
+  line-height: 24px;
+  text-indent: 24px;
+  margin-top: 4px;
+  color: #666;
+}
+
+.info-name {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.icon-spread {
+  background-image: url("../../assets/icon.png");
+  background-position: -65px -520px;
+  width: 11px;
+  height: 8px;
+}
+
+.icon-back {
+  background-image: url("../../assets/icon.png");
+  background-position: -45px -520px;
+  width: 11px;
+  height: 8px;
+}
+
+.spread-content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #0c73c2;
 }
 </style>

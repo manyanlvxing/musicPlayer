@@ -43,8 +43,10 @@ export default {
 
 <style scoped>
 .albumContent {
+  box-sizing: border-box;
   width: 700px;
   border: 1px solid #d3d3d3;
+  padding: 47px 30px 40px 30px;
 
   /* border: 1px solid black; */
 }

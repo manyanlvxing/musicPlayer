@@ -1,9 +1,10 @@
 <template>
   <div class="songs">
-    <div class="songs-title">
+    <!-- <div class="songs-title">
       <span>包含歌曲列表</span>
       <span>{{ albumSongs.length }}首歌</span>
-    </div>
+    </div> -->
+    <commonTitle title="包含歌曲列表"></commonTitle>
     <div class="li-header">
       <div class="div1"></div>
       <div class="div2">歌曲标题</div>
@@ -23,6 +24,7 @@
 
 <script>
 import albumSongItem from "./albumSongItem.vue";
+import commonTitle from "../commonTitle.vue";
 
 export default {
   props: {
@@ -30,6 +32,7 @@ export default {
   },
   components: {
     albumSongItem,
+    commonTitle
   },
 };
 </script>
