@@ -110,8 +110,6 @@ tbody tr:nth-child(odd) {
   width: 74px;
 }
 
-.div2 {
-}
 
 .div3 {
   width: 91px;
