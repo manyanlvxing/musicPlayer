@@ -119,7 +119,7 @@ tbody tr:nth-child(odd) {
 }
 
 .songs {
-  text-align: start;
+  margin-bottom: 40px;
 }
 
 .songs span:nth-child(1) {

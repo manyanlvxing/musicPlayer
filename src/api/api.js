@@ -29,3 +29,12 @@ export function getSongUrl(id) {
 export function getPlayerListDetail(id) {
     return axios.get(`/playlist/detail?id=${id}`);
 }
+
+export function getAlbumComment(id) {
+    return axios.get(`/comment/album?id=${id}`);
+}
+
+//推荐歌单
+export function getPlayerList(amount = 30) {
+    return axios.get(`/personalized?limit=${amount}`);
+}

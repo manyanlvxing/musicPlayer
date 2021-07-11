@@ -16,6 +16,7 @@ export default {
   width: 638px;
   height: 33px;
   border-bottom: 2px solid #c20c0c;
+  text-align: left;
 }
 
 .redLine span:nth-child(1) {

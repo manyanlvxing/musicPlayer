@@ -2,9 +2,8 @@
   <div class="center">
     <div class="content">
       <banner v-if="bannerUrls.length > 0" :imgUrls="bannerUrls"></banner>
-      <br />
+      <playList></playList>
       <newDish></newDish>
-      <br />
       <topList></topList>
     </div>
   </div>
@@ -12,6 +11,7 @@
 
 <script>
 import banner from "../components/banner.vue";
+import playList from "../components/playList/playList.vue";
 import newDish from "../components/newDish.vue";
 import topList from "../components/topList.vue";
 
@@ -22,6 +22,7 @@ export default {
     banner,
     newDish,
     topList,
+    playList,
   },
   data() {
     return {

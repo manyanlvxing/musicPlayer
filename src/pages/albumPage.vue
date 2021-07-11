@@ -5,29 +5,38 @@
       :albumInfo="albumDetail"
     ></albumheader>
     <albumSongs v-if="albumInfo != null" :albumSongs="albumSongs"></albumSongs>
+    <albumComment :comments="comments"></albumComment>
   </div>
 </template>
 
 <script>
-import { getAlbumDetail } from "../api/api";
+import { getAlbumDetail, getAlbumComment } from "../api/api";
 
 import albumheader from "../components/album/albumHeader.vue";
 import albumSongs from "../components/album/albumSongs.vue";
+import albumComment from "../components/comment/albumComment.vue";
 
 export default {
   data() {
     return {
       albumInfo: null,
+      comments: [],
     };
   },
   components: {
     albumheader,
     albumSongs,
+    albumComment,
   },
   created() {
     getAlbumDetail(this.$route.query.id).then((res) => {
-      console.log(res);
+      console.log("getAlbumDetail", res);
       this.albumInfo = res.data;
+    });
+
+    getAlbumComment(this.$route.query.id).then((res) => {
+      console.log("getAlbumComment", res);
+      this.comments = res.data.comments;
     });
   },
   computed: {
