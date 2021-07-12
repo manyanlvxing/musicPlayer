@@ -1,10 +1,7 @@
 <template>
   <div class="albumContent">
-    <albumheader
-      v-if="albumInfo != null"
-      :albumInfo="albumDetail"
-    ></albumheader>
-    <albumSongs v-if="albumInfo != null" :albumSongs="albumSongs"></albumSongs>
+    <albumheader :albumInfo="albumDetail"></albumheader>
+    <albumSongs :albumSongs="albumSongs"></albumSongs>
     <albumComment :comments="comments"></albumComment>
   </div>
 </template>
@@ -19,7 +16,7 @@ import albumComment from "../components/comment/albumComment.vue";
 export default {
   data() {
     return {
-      albumInfo: null,
+      albumInfo: {},
       comments: [],
     };
   },

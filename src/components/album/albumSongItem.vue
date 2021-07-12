@@ -120,4 +120,9 @@ table tr td {
   left: 30px;
   top: 0;
 }
+
+.play-icon:hover{
+  background-position: 0 -128px;
+}
+
 </style>

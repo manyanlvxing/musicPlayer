@@ -38,3 +38,11 @@ export function getAlbumComment(id) {
 export function getPlayerList(amount = 30) {
     return axios.get(`/personalized?limit=${amount}`);
 }
+
+export function getPlayListDetail(id) {
+    return axios.get(`/playlist/detail?id=${id}`);
+}
+
+export function getPlayListComment(id) {
+    return axios.get(`/comment/playlist?id=${id}`);
+}

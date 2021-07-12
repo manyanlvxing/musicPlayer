@@ -16,9 +16,9 @@
       <span class="songname">{{ albumName }}</span>
       <span class="artistname">{{ artistName }}</span>
 
-      <div class="bar-circal"></div>
       <div class="bar-black player-bar-img"></div>
       <div class="bar-red player-bar-img" :style="{ width: currWidth }"></div>
+      <div class="bar-circal" :style="{ left: currWidth }"></div>
 
       <span>{{ currTime }}/{{ duration }}</span>
     </div>
@@ -34,9 +34,30 @@ export default {
   data() {
     return {
       maxWidth: 460,
+      currWidth: "0px",
     };
   },
   methods: {
+    initEvents() {
+      let audio = this.$refs.playControl;
+
+      audio.oncanplay = function () {
+        console.log("canplay");
+        audio.play();
+        audio.volume = 0.4;
+      };
+
+      audio.ontimeupdate = () => {
+        console.log("timeUpdate", audio.currentTime, audio.duration);
+        this.currWidth = `${
+          this.maxWidth * (audio.currentTime / audio.duration)
+        }px`;
+      };
+
+      audio.onerror = function (e) {
+        console.log("onerror", e);
+      };
+    },
     playOrStop() {
       if (this.isPlaying) {
         this.$refs.playControl.pause();
@@ -56,6 +77,13 @@ export default {
         console.log("canplay");
         audio.play();
         audio.volume = 0.4;
+      };
+
+      audio.ontimeupdate = () => {
+        console.log("timeUpdate", audio.currentTime, audio.duration);
+        this.currWidth = `${
+          this.maxWidth * (audio.currentTime / audio.duration)
+        }px`;
       };
     },
   },
@@ -78,9 +106,6 @@ export default {
     currProgress() {
       return isNaN(this.duration) ? 0 : this.currTime / this.duration;
     },
-    currWidth() {
-      return this.maxWidth * this.currProgress + "px";
-    },
     stopOrPlay() {
       return {
         play: this.isPlaying,
@@ -101,6 +126,9 @@ export default {
         this.playSong();
       }
     },
+  },
+  mounted() {
+    this.initEvents();
   },
 };
 </script>
@@ -174,7 +202,8 @@ export default {
   height: 9px;
   width: 466px;
   background-position: right 0;
-  top: 23px;
+  top: 30px;
+  left: 4px;
 }
 
 .bar-red {
@@ -182,7 +211,8 @@ export default {
   height: 9px;
   width: 466px;
   background-position: left -66px;
-  top: 23px;
+  top: 30px;
+  left: 4px;
 }
 
 .player-left {
@@ -226,9 +256,12 @@ export default {
 }
 
 .bar-circal {
+  position: absolute;
   width: 22px;
   height: 24px;
   background-image: url("../../assets/iconall.png");
   background-position: 0px -250px;
+  top: 24px;
+  left: 0px;
 }
 </style>

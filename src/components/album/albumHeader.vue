@@ -1,12 +1,13 @@
 <template>
   <div>
     <div class="ablumheader">
-      <div class="imgContainer">
+      <loading v-if="albumInfo == null"></loading>
+      <div class="imgContainer" v-if="albumInfo != null">
         <img class="ablumImg" :src="albumPicUrl" alt="图片加载失败" />
         <span class="spanCover span-cover"></span>
       </div>
 
-      <div class="album-info">
+      <div class="album-info" v-if="albumInfo != null">
         <p class="info-name">{{ this.albumInfo.name }}</p>
         <p class="info-artist">歌手: {{ this.albumInfo.artist.name }}</p>
         <p class="info-date">发行时间: {{ publishTime }}</p>
@@ -14,7 +15,7 @@
       </div>
     </div>
 
-    <div class="album-des">
+    <div class="album-des" v-if="albumInfo != null">
       <h3>专辑介绍:</h3>
       <p
         v-for="(val, index) in desList"
@@ -35,6 +36,8 @@
 </template>
 
 <script>
+import loading from "../common/loading.vue";
+
 export default {
   data() {
     return {
@@ -43,6 +46,9 @@ export default {
   },
   props: {
     albumInfo: Object,
+  },
+  components: {
+    loading,
   },
   computed: {
     albumPicUrl() {

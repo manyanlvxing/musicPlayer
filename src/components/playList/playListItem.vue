@@ -1,7 +1,10 @@
 <template>
   <div class="playListItem">
     <img :src="playListInfo.picUrl" alt="" />
-    <a href="" class="playListItemBg"></a>
+    <a
+      class="playListItemBg"
+      @click.prevent="onClickPlayList"
+    ></a>
     <div class="bottom">
       <div class="icon-all-one"></div>
       <span>{{ playCount }}</span>
@@ -14,12 +17,24 @@
 </template>
 
 <script>
-
 export default {
   props: ["playListInfo"],
   computed: {
     playCount() {
       return Math.floor(this.playListInfo.playCount / 10000) + "万";
+    },
+    playListUrl() {
+      return `/playList?id=${this.playListInfo.id}`;
+    },
+  },
+  methods: {
+    onClickPlayList() {
+      this.$router.push({
+        path: "/playList",
+        query: {
+          id: this.playListInfo.id,
+        },
+      });
     },
   },
 };

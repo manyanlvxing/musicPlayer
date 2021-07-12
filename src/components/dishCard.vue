@@ -2,7 +2,7 @@
   <li>
     <div class="disCardContainer">
       <img class="dishCard" :src="imgUrl" alt="图片加载失败" />
-      <a :href="ablumUrl" class="maskA mask-cover"></a>
+      <a class="maskA mask-cover" @click.prevent="onClickDish"></a>
       <p class="albumName">{{ albumName }}</p>
       <p class="artistName">{{ artistName }}</p>
     </div>
@@ -41,6 +41,14 @@ export default {
       // console.log("clickAblumDetail", this.info);
 
       getAlbumDetail(this.info.id).then((res) => console.log(res));
+    },
+    onClickDish() {
+      this.$router.push({
+        path: "/ablum",
+        query: {
+          id: this.info.id,
+        },
+      });
     },
   },
 };

@@ -9,7 +9,9 @@
       </div>
     </dt>
     <dd>
-      <ol class="top-list-ul">
+      <loading v-show="songsInfo.length < 10"></loading>
+
+      <ol class="top-list-ul" v-show="songsInfo.length == 10">
         <li
           class="small clear-fix"
           v-for="(val, index) in songsInfo"
@@ -18,12 +20,7 @@
           <!-- 123456 -->
           <div>{{ index + 1 }}</div>
           <div>{{ val.data.songs[0].name }}</div>
-          <div class="control">
-            <span
-              @click="clickSong(val)"
-              class="top-list-play iconfont icon-play"
-            ></span>
-          </div>
+          <div class="control" @click="clickSong(val)"></div>
         </li>
       </ol>
     </dd>
@@ -32,6 +29,7 @@
 
 <script>
 import { getSongDetail, getPlayerListDetail } from "../api/api";
+import loading from "../components/common/loading.vue";
 
 export default {
   props: ["topListInfo"],
@@ -69,12 +67,13 @@ export default {
       this.$store.commit("setSongInfo", songInfo.data.songs[0]);
     },
   },
+  components: {
+    loading,
+  },
 };
 </script>
 
 <style scoped>
-@import url("../../css/iconfont.css");
-
 dl {
   width: 240px;
   /* text-align: start; */
@@ -107,9 +106,7 @@ dt div img {
   color: rgb(51, 51, 51);
 }
 
-.top-list-ul li:hover {
-  background-color: lightblue;
-}
+
 
 .top-list-ul li div {
   float: left;
@@ -128,8 +125,17 @@ dt div img {
 .control {
   position: absolute;
   right: 10px;
-  top: 0px;
+  top: 6px;
+  background-position: 0 -103px;
+  background-image: url("../assets/table.png");
+  width: 17px;
+  height: 17px;
 }
+
+.control:hover{
+  background-position: 0 -128px;
+}
+
 
 .top-list-play {
   font-size: 25px;

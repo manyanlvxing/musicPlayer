@@ -1,5 +1,5 @@
 <template>
-  <div class="songs">
+  <div class="songs" v-if="albumSongs != null">
     <redLineTitle title1="包含歌曲列表" :title2="albumLength"></redLineTitle>
     <table>
       <thead>
@@ -36,7 +36,7 @@ import redLineTitle from "../common/redLineTitle.vue";
 
 export default {
   props: {
-    albumSongs: Array,
+    albumSongs: [],
   },
   components: {
     albumSongItem,
@@ -84,12 +84,8 @@ ata {
 }
 
 tbody tr:nth-child(odd) {
-  background-color: rgb(247, 247, 247);;
+  background-color: rgb(247, 247, 247);
 }
-
-
-
-
 
 .li-header div {
   font-size: 12px;
@@ -109,7 +105,6 @@ tbody tr:nth-child(odd) {
 .div1 {
   width: 74px;
 }
-
 
 .div3 {
   width: 91px;

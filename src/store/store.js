@@ -1,6 +1,8 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
 
+
+
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
@@ -34,6 +36,9 @@ export const store = new Vuex.Store({
         artistName(state) {
             return state.currSongInfo ? state.currSongInfo.ar[0].name : "";
         },
+    },
+    actions:{
+
     }
 
 })

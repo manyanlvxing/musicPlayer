@@ -35,6 +35,10 @@ const routes = [
         component: () => import('../pages/albumPage.vue')
     },
     {
+        path: '/playList',
+        component: () => import('../pages/playListPage.vue')
+    },
+    {
         //未匹配路径默认页面
         path: '*',
         component: () => import('../pages/homePage.vue')
@@ -49,11 +53,11 @@ export const router = new VueRouter({
 
 
 //全局前置守卫
-router.beforeEach((to, from, next) => {
+// router.beforeEach((to, from, next) => {
 
-    console.log(to, from);
+//     console.log(to, from);
 
-    next();
+//     next();
 
 
-})
+// })

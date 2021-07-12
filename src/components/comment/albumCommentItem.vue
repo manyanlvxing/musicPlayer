@@ -23,12 +23,12 @@ export default {
 
 <style scoped>
 .comment-item {
-  height: 51px;
   padding: 15px 0;
   font-size: 12px;
   color: #333;
   border-top: 1px dotted #ccc;
   text-align: left;
+  overflow: hidden;
 }
 
 img {
@@ -56,7 +56,7 @@ img {
 .commentDate {
   float: left;
   color: #999;
-  margin-left: 10px;
-  margin-top: 18px;
+  margin-top: 10px;
+  padding-left: 10px;
 }
 </style>
