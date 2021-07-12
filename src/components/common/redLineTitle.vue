@@ -1,5 +1,5 @@
 <template>
-  <div class="redLine">
+  <div class="redLine" :style="{ width: currWidth }">
     <span>{{ title1 }}</span>
     <span>{{ title2 }}</span>
   </div>
@@ -7,7 +7,12 @@
 
 <script>
 export default {
-  props: ["title1", "title2"],
+  props: ["title1", "title2", "width"],
+  computed: {
+    currWidth() {
+      return (this.width ? this.width : 638) + "px";
+    },
+  },
 };
 </script>
 

@@ -1,8 +1,17 @@
 <template>
-  <li>
-    <div class="disCardContainer">
-      <img class="dishCard" :src="imgUrl" alt="图片加载失败" />
-      <a class="maskA mask-cover" @click.prevent="onClickDish"></a>
+  <li :class="containerClass">
+    <div>
+      <img
+        class="dishCard"
+        :src="imgUrl"
+        alt="图片加载失败"
+        :class="imgClass"
+      />
+      <a
+        class="mask-cover"
+        @click.prevent="onClickDish"
+        :class="coverClass"
+      ></a>
       <p class="albumName">{{ albumName }}</p>
       <p class="artistName">{{ artistName }}</p>
     </div>
@@ -15,6 +24,7 @@ import { getAlbumDetail } from "../api/api";
 export default {
   props: {
     info: Object,
+    type: Number,
   },
   created() {
     console.log(this.info);
@@ -34,6 +44,24 @@ export default {
     },
     ablumUrl() {
       return `/ablum?id=${this.info.id}`;
+    },
+    imgClass() {
+      return {
+        "dish-card_type-one": this.type == 1,
+        "dish-card_type-two": this.type == 2,
+      };
+    },
+    coverClass() {
+      return {
+        "dish-card-cover-one": this.type == 1,
+        "dish-card-cover-two": this.type == 2,
+      };
+    },
+    containerClass() {
+      return {
+        "dish-card-container-one": this.type == 1,
+        "dish-card-container-two": this.type == 2,
+      };
     },
   },
   methods: {
@@ -55,25 +83,24 @@ export default {
 </script>
 
 <style scoped>
-.disCardContainer {
-  height: 150px;
-  margin-top: 30px;
-}
-
 .dishCard {
   width: 100px;
   height: 100px;
-  /* margin-top: 10px; */
+  margin-top: 10px;
 }
 
 li {
   float: left;
+  position: relative;
   list-style: none;
   display: block;
-  width: 118px;
   text-align: start;
   top: 0;
-  position: relative;
+}
+
+li > div {
+  width: 100%;
+  height: 100%;
 }
 
 .maskA {
@@ -99,5 +126,46 @@ li {
   text-overflow: ellipsis;
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.dish-card_type-one {
+  width: 100px;
+  height: 100px;
+}
+
+.dish-card-cover-one {
+  position: absolute;
+  width: 118px;
+  height: 100px;
+  left: 0;
+  top: 11px;
+}
+
+.dish-card_type-two {
+  width: 130px;
+  height: 130px;
+}
+
+.dish-card-cover-two {
+  position: absolute;
+  width: 153px;
+  height: 130px;
+  left: 0;
+  top: 10px;
+  background-position: 0 -845px;
+}
+
+.dish-card-container-one {
+  width: 100px;
+  height: 100px;
+  margin-top: 20px;
+  margin-left: 11px;
+  margin-right: 15px;
+}
+
+.dish-card-container-two {
+  width: 130px;
+  height: 130px;
+  margin: 25px;
 }
 </style>

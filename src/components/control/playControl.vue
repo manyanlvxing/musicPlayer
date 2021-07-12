@@ -20,7 +20,7 @@
       <div class="bar-red player-bar-img" :style="{ width: currWidth }"></div>
       <div class="bar-circal" :style="{ left: currWidth }"></div>
 
-      <span>{{ currTime }}/{{ duration }}</span>
+      <span>{{ curr }}/{{ duration }}</span>
     </div>
     <div class="player-right"></div>
     <audio ref="playControl" :src="currMusic"></audio>
@@ -29,12 +29,15 @@
 
 <script>
 import { mapGetters, mapState } from "vuex";
+import { formatTime } from "../../utils";
 
 export default {
   data() {
     return {
       maxWidth: 460,
       currWidth: "0px",
+      currTime: 0,
+      totalTime: 0,
     };
   },
   methods: {
@@ -52,6 +55,9 @@ export default {
         this.currWidth = `${
           this.maxWidth * (audio.currentTime / audio.duration)
         }px`;
+
+        this.currTime = audio.currTime;
+        this.totalTime = audio.duration;
       };
 
       audio.onerror = function (e) {
@@ -95,22 +101,17 @@ export default {
       currSongInfo: "currSongInfo",
     }),
     ...mapGetters(["picUrl", "albumName", "artistName"]),
-    currTime() {
-      return (
-        (this.$refs.playControl && this.$refs.playControl.currentTime) || 0
-      );
-    },
-    duration() {
-      return this.$refs.playControl && this.$refs.playControl.duration;
-    },
-    currProgress() {
-      return isNaN(this.duration) ? 0 : this.currTime / this.duration;
-    },
     stopOrPlay() {
       return {
         play: this.isPlaying,
         stop: !this.isPlaying,
       };
+    },
+    curr() {
+      return formatTime(new Date(this.currTime * 1000), "mm/ss");
+    },
+    duration() {
+      return formatTime(new Date(this.totalTime * 1000), "mm/ss");
     },
   },
   watch: {
@@ -133,7 +134,7 @@ export default {
 };
 </script>
 
-<style lang='less'>
+<style lang='less' scoped>
 @playerbartop: 15px;
 
 .player-background-img {

@@ -27,7 +27,7 @@ const routes = [
         // }
 
         //3。使用函数
-        props: (route) => ({index: route.params.index})
+        props: (route) => ({ index: route.params.index })
     },
     {
         //专辑详情界面
@@ -37,6 +37,17 @@ const routes = [
     {
         path: '/playList',
         component: () => import('../pages/playListPage.vue')
+    },
+    {
+        path: '/more',
+        component: () => import('../pages/more.vue'),
+        children: [
+            {
+                path: 'playListMore',
+                component: () => import('../pages/playListMore')
+            }
+        ]
+
     },
     {
         //未匹配路径默认页面

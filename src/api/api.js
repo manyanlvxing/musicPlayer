@@ -46,3 +46,12 @@ export function getPlayListDetail(id) {
 export function getPlayListComment(id) {
     return axios.get(`/comment/playlist?id=${id}`);
 }
+
+export function getHotDishes() {
+    return axios.get(`/top/album?offset=0&limit=10&year=2021&month=7&type=hot`);
+}
+
+
+export function getAllNewDishes(num) {
+    return axios.get(`/album/new?area=ALL&limit=${num}`);
+}

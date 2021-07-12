@@ -14,6 +14,7 @@
               v-for="(val, index) in behindArr"
               :key="index"
               :info="val"
+              :type="1"
             ></dish-card>
           </ul>
         </transition>
@@ -23,6 +24,7 @@
               v-for="(val, index) in afterArr"
               :key="index"
               :info="val"
+              :type="1"
             ></dish-card>
           </ul>
         </transition>
@@ -92,7 +94,7 @@ export default {
 .ul-container {
   position: relative;
   float: left;
-  width: 590px;
+  width: 630px;
   height: 186px;
   overflow: hidden;
   margin: 0 18px 0px 18px;
@@ -102,7 +104,7 @@ export default {
   position: absolute;
   float: left;
   height: 150px;
-  width: 590px;
+  width: 630px;
 }
 
 .mask {
@@ -115,7 +117,7 @@ export default {
 }
 
 .move {
-  transform: translateX(-590px);
+  transform: translateX(-630px);
   transition: all 2s;
 }
 
@@ -126,7 +128,7 @@ export default {
 
 .behind-enter,
 .behind-leave-to {
-  transform: translateX(-590px);
+  transform: translateX(-630px);
 }
 
 .behind-enter-active,
@@ -136,7 +138,7 @@ export default {
 
 .after-enter,
 .after-leave-to {
-  transform: translateX(590px);
+  transform: translateX(630px);
 }
 
 .after-enter-active,
