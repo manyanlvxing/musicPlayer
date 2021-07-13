@@ -1,6 +1,6 @@
 <template>
   <div>
-    <commonTitle title="热门推荐"></commonTitle>
+    <commonTitle title="热门推荐" :routeOptions="playListOptions"></commonTitle>
     <div class="playListContent">
       <playListItem
         v-for="(val, index) in playLists"
@@ -20,6 +20,9 @@ export default {
   data() {
     return {
       playLists: [],
+      playListOptions: {
+        path: "/more/playListMore",
+      },
     };
   },
   components: {

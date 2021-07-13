@@ -1,10 +1,7 @@
 <template>
   <div class="playListItem">
-    <img :src="playListInfo.picUrl" alt="" />
-    <a
-      class="playListItemBg"
-      @click.prevent="onClickPlayList"
-    ></a>
+    <img :src="imgUrl" alt="图片加载失败" />
+    <a class="playListItemBg" @click.prevent="onClickPlayList"></a>
     <div class="bottom">
       <div class="icon-all-one"></div>
       <span>{{ playCount }}</span>
@@ -25,6 +22,9 @@ export default {
     },
     playListUrl() {
       return `/playList?id=${this.playListInfo.id}`;
+    },
+    imgUrl() {
+      return this.playListInfo.picUrl || this.playListInfo.coverImgUrl;
     },
   },
   methods: {

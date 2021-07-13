@@ -1,6 +1,7 @@
 import VueRouter from "vue-router";
 import Vue from 'vue';
 
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -27,7 +28,7 @@ const routes = [
         // }
 
         //3。使用函数
-        props: (route) => ({ index: route.params.index })
+        props: (route) => ({index: route.params.index})
     },
     {
         //专辑详情界面
@@ -45,15 +46,24 @@ const routes = [
             {
                 path: 'playListMore',
                 component: () => import('../pages/playListMore')
+            },
+            {
+                path: 'newDishesMore',
+                component: () => import('../pages/newDishesMore')
             }
         ]
 
+    },
+    {
+        path: '/songDetail',
+        component: () => import('../pages/songInfoPage.vue')
     },
     {
         //未匹配路径默认页面
         path: '*',
         component: () => import('../pages/homePage.vue')
     }
+
 ]
 
 
@@ -66,9 +76,6 @@ export const router = new VueRouter({
 //全局前置守卫
 // router.beforeEach((to, from, next) => {
 
-//     console.log(to, from);
-
 //     next();
-
 
 // })

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <commonTitle title="新碟上架"></commonTitle>
+    <commonTitle title="新碟上架" :routeOptions="dishesOptions"></commonTitle>
     <div class="mask">
       <commonArrow
         @onArrowClick="onClickArrow($event)"
@@ -53,6 +53,9 @@ export default {
       isShowBehind: true,
       behindArr: [],
       afterArr: [],
+      dishesOptions: {
+        path: "/more/newDishesMore",
+      },
     };
   },
   components: {
@@ -84,7 +87,7 @@ export default {
       this.playMove();
     },
     playMove() {
-      this.isShowBehind =!this.isShowBehind;
+      this.isShowBehind = !this.isShowBehind;
     },
   },
 };

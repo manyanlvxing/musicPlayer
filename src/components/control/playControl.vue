@@ -51,7 +51,7 @@ export default {
       };
 
       audio.ontimeupdate = () => {
-        console.log("timeUpdate", audio.currentTime, audio.duration);
+        // console.log("timeUpdate", audio.currentTime, audio.duration);
         this.currWidth = `${
           this.maxWidth * (audio.currentTime / audio.duration)
         }px`;
@@ -77,20 +77,20 @@ export default {
       this.playMusic();
     },
     playMusic() {
-      let audio = this.$refs.playControl;
+      // let audio = this.$refs.playControl;
 
-      audio.oncanplay = function () {
-        console.log("canplay");
-        audio.play();
-        audio.volume = 0.4;
-      };
+      // audio.oncanplay = function () {
+      //   console.log("canplay");
+      //   audio.play();
+      //   audio.volume = 0.4;
+      // };
 
-      audio.ontimeupdate = () => {
-        console.log("timeUpdate", audio.currentTime, audio.duration);
-        this.currWidth = `${
-          this.maxWidth * (audio.currentTime / audio.duration)
-        }px`;
-      };
+      // audio.ontimeupdate = () => {
+      //   // console.log("timeUpdate", audio.currentTime, audio.duration);
+      //   this.currWidth = `${
+      //     this.maxWidth * (audio.currentTime / audio.duration)
+      //   }px`;
+      // };
     },
   },
 

@@ -55,3 +55,15 @@ export function getHotDishes() {
 export function getAllNewDishes(num) {
     return axios.get(`/album/new?area=ALL&limit=${num}`);
 }
+
+export function getTopPlayList(amount = 35) {
+    return axios.get(`/top/playlist?limit=${amount}`);
+}
+
+export function getLyric(id) {
+    return axios.get(`/lyric?id=${id}`);
+}
+
+export function getMusicComment(id, amount = 20) {
+    return axios.get(`/comment/music?id=${id}&limit=${amount}`);
+}

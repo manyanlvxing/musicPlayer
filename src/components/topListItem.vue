@@ -13,6 +13,7 @@
 
       <ol class="top-list-ul" v-show="songsInfo.length == 10">
         <li
+          @click="goToSongDetail(val)"
           class="small clear-fix"
           v-for="(val, index) in songsInfo"
           :key="index"
@@ -66,6 +67,14 @@ export default {
 
       this.$store.commit("setSongInfo", songInfo.data.songs[0]);
     },
+    goToSongDetail(songInfo) {
+      this.$router.push({
+        path: "/songDetail",
+        query: {
+          id: songInfo.data.songs[0].id,
+        },
+      });
+    },
   },
   components: {
     loading,
@@ -106,8 +115,6 @@ dt div img {
   color: rgb(51, 51, 51);
 }
 
-
-
 .top-list-ul li div {
   float: left;
 }
@@ -132,10 +139,9 @@ dt div img {
   height: 17px;
 }
 
-.control:hover{
+.control:hover {
   background-position: 0 -128px;
 }
-
 
 .top-list-play {
   font-size: 25px;

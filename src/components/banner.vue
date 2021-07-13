@@ -3,7 +3,7 @@
     <transition-group name="fade">
       <img
         v-for="(val, index) in imgUrls"
-        :key="val.targetId"
+        :key="index"
         :src="val.imageUrl"
         alt="图片加载失败"
         v-show="currIndex == index"

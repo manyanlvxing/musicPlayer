@@ -2,9 +2,10 @@
   <div class="navWrap">
     <ul class="clear-fix">
       <navSpanItem
-        v-for="(val, index) in titls"
+        v-for="(val, index) in titles"
         :title="val"
-        :key="index"
+        :key="index+1"
+        :path="path[index]"
       ></navSpanItem>
     </ul>
   </div>
@@ -19,7 +20,8 @@ export default {
   },
   data() {
     return {
-      titls: ["推荐", "排行榜", "歌单", "主播电台", "歌手", "新碟上架"],
+      titles: ["推荐", "排行榜", "歌单", "主播电台", "歌手", "新碟上架"],
+      path: ["/", "/rank", "/more/playListMore", "", "", "/more/newDishesMore"],
     };
   },
 };

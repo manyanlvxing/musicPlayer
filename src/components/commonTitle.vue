@@ -7,11 +7,11 @@
 
 <script>
 export default {
-  props: ["title"],
+  props: ["title", "routeOptions"],
   methods: {
     onClickMore() {
       this.$router.push({
-        path: "/more/playListMore",
+        path: this.routeOptions.path,
       });
     },
   },
