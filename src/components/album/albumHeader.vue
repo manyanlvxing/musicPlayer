@@ -8,10 +8,17 @@
       </div>
 
       <div class="album-info" v-if="albumInfo != null">
-        <p class="info-name">{{ this.albumInfo.name }}</p>
-        <p class="info-artist">歌手: {{ this.albumInfo.artist.name }}</p>
-        <p class="info-date">发行时间: {{ publishTime }}</p>
-        <p class="info-comany">发行公司: {{ this.albumInfo.company }}</p>
+        <div>
+          <div class="album-icon-type"></div>
+          <p class="info-name">{{ this.albumInfo.name }}</p>
+        </div>
+        <p class="info-artist">
+          歌手：&nbsp;&nbsp;<span>{{ this.albumInfo.artist.name }}</span>
+        </p>
+        <p class="info-date">发行时间：&nbsp;&nbsp;{{ publishTime }}</p>
+        <p class="info-comany">
+          发行公司：&nbsp;&nbsp;{{ this.albumInfo.company }}
+        </p>
       </div>
     </div>
 
@@ -20,11 +27,11 @@
       <p
         v-for="(val, index) in desList"
         :key="index"
-        v-show="index < 6 || (index >= 6 && !isHide)"
+        v-show="index < lineNum || (index >= lineNum && !isHide)"
       >
         {{ val }}
       </p>
-      <div class="spread-content">
+      <div class="spread-content" v-show="desList.length > lineNum">
         <span @click="clickSpread">{{ isHide ? "展开" : "收回" }}</span>
         <div @click="clickSpread" :class="iconClass"></div>
       </div>
@@ -42,6 +49,7 @@ export default {
   data() {
     return {
       isHide: true,
+      lineNum: 6,
     };
   },
   props: {
@@ -141,6 +149,7 @@ export default {
   font-size: 20px;
   line-height: 24px;
   font-weight: 400;
+  color: rgb(51, 51, 51);
 }
 
 .icon-spread {
@@ -161,6 +170,19 @@ export default {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  color: #0c73c2;
+}
+
+.album-icon-type {
+  float: left;
+  background-image: url("../../assets/icon.png");
+  background-position: 0 -186px;
+  width: 54px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.info-artist span {
   color: #0c73c2;
 }
 </style>

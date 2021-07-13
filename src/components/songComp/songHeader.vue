@@ -12,12 +12,12 @@
           {{ songDetail.name }}
         </div>
         <div class="song-alia">{{ songDetail.alia[0] }}</div>
-        <div class="detail">
-          <span> </span>
-          <span></span>
+        <div class="detail-artist dis grey-label">
+          歌手：<span class="blue">{{ artistName }}</span>
         </div>
-        <div class="detail-tags">歌手:{{ artistName }}</div>
-        <div class="detail-des">所属专辑:{{ belongAlbumName }}</div>
+        <div class="detail-album dis grey-label">
+          所属专辑：<span class="blue">{{ belongAlbumName }}</span>
+        </div>
       </div>
       <div class="lysic">
         <p
@@ -113,8 +113,8 @@ img {
   position: absolute;
   width: 130px;
   height: 130px;
-  left: 40px;
-  top: 40px;
+  left: 37px;
+  top: 38px;
 }
 
 .song-alia {
@@ -145,9 +145,10 @@ img {
 }
 .msg {
   float: left;
-  width: 432px;
+  width: 400px;
   font-size: 12px;
   text-align: left;
+  padding-left: 25px;
 }
 
 .creator-avatar {
@@ -156,8 +157,10 @@ img {
 }
 
 .playListName {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: rgb(51, 51, 51);
+  font-weight: 400;
 }
 
 .icon-type {
@@ -167,6 +170,7 @@ img {
   width: 54px;
   height: 24px;
   margin-right: 10px;
+  margin-top: 5px;
 }
 
 .detail {
@@ -194,11 +198,12 @@ img {
 
 .lysic {
   float: left;
-  width: 414px;
+  width: 400px;
   font-size: 12px;
   text-align: left;
   margin-top: 20px;
   color: rgb(51, 51, 51);
+  padding-left: 25px;
 }
 
 .lysic p {
@@ -225,5 +230,17 @@ img {
   align-items: center;
   color: #0c73c2;
   margin-top: 10px;
+}
+
+.blue {
+  color: #0c73c2;
+}
+
+.dis {
+  margin: 10px 0;
+}
+
+.grey-label {
+  color: rgb(153, 153, 153);
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <loading v-if="playListDetail == null"> </loading>
     <div class="playListHeader" v-if="playListDetail != null">
       <avatar
@@ -20,11 +20,17 @@
             :src="playListDetail.creator.avatarUrl"
             alt="图片加载失败"
           />
-          <span> {{ playListDetail.creator.nickname }}</span>
-          <span> {{ createTime }}</span>
+          <span class="creatorName">
+            {{ playListDetail.creator.nickname }}</span
+          >
+          <span class="createTime"> {{ createTime }}</span>
         </div>
-        <div class="control"></div>
-        <div class="detail-tags">标签:{{ playListDetail.tags }}</div>
+        <div class="detail-tags">
+          <div>标签：</div>
+          <div v-for="(v, i) in playListDetail.tags" :key="i">
+            <span>{{ v }}&nbsp;</span>
+          </div>
+        </div>
         <div class="detail-des">介绍：{{ playListDetail.description }}</div>
       </div>
     </div>
@@ -55,6 +61,10 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  margin-bottom: 30px;
+}
+
 .playListHeader {
   position: relative;
   text-align: left;
@@ -64,6 +74,7 @@ export default {
   position: absolute;
   left: 220px;
   top: 0;
+  padding-left: 20px;
 }
 
 .creator-avatar {
@@ -102,9 +113,36 @@ export default {
   margin: 0 5px;
 }
 
-.control {
-  width: 100%;
-  height: 40px;
-  opacity: 0;
+.creatorName {
+  color: #0c73c2;
+}
+
+.createTime {
+  color: #999;
+}
+
+.detail-tags {
+  overflow: hidden;
+  margin-bottom: 10px;
+  margin-top: 85px;
+}
+
+.detail-tag {
+  width: 40px;
+  height: 22px;
+  background-image: url("../../assets/button2.png");
+  background-position: right -27px;
+  text-shadow: 0 1px #fdfdfd;
+}
+
+.detail-tag span {
+  width: 24px;
+  height: 22px;
+  padding: 0 13px 3px;
+  background-image: url("../../assets/button2.png");
+}
+
+.detail-tags div {
+  float: left;
 }
 </style>

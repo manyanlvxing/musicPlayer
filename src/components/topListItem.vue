@@ -19,8 +19,12 @@
           :key="index"
         >
           <!-- 123456 -->
-          <div>{{ index + 1 }}</div>
-          <div>{{ val.data.songs[0].name }}</div>
+          <div>
+            <span>{{ index + 1 }}</span>
+          </div>
+          <div>
+            <span>{{ val.data.songs[0].name }}</span>
+          </div>
           <div class="control" @click="clickSong(val)"></div>
         </li>
       </ol>
@@ -113,6 +117,10 @@ dt div img {
   height: 32px;
   line-height: 32px;
   color: rgb(51, 51, 51);
+}
+
+.top-list-ul li div:nth-of-type(2) span:hover {
+  text-decoration: underline;
 }
 
 .top-list-ul li div {

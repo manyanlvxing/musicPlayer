@@ -30,7 +30,12 @@ export default {
     },
     clickBanner(info) {
       if (info.targetType == 1) {
-        console.log("单曲");
+        this.$router.push({
+          path: "/songDetail",
+          query: {
+            id: info.targetId,
+          },
+        });
       } else {
         this.$router.push({
           path: "/ablum",

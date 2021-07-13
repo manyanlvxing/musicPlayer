@@ -59,6 +59,10 @@ const routes = [
         component: () => import('../pages/songInfoPage.vue')
     },
     {
+        path: '/rank',
+        component: () => import('../pages/rankPage.vue')
+    },
+    {
         //未匹配路径默认页面
         path: '*',
         component: () => import('../pages/homePage.vue')

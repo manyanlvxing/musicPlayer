@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :style="{ minWidth: containerWidth }">
     <baseHead></baseHead>
     <div class="container">
       <left></left>
@@ -72,6 +72,11 @@ export default {
   },
 
   created() {},
+  computed: {
+    containerWidth() {
+      return this.$route.path == "/rank" ? "980px" : "800px";
+    },
+  },
 };
 </script>
 
@@ -84,7 +89,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  min-width: 800px;
 }
 
 .container {

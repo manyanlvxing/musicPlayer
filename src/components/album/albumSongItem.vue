@@ -7,7 +7,7 @@
       </div>
     </td>
     <td>
-      <div class="small song-name">
+      <div @click="goToSong" class="small song-name">
         <span>{{ songInfo.name }}</span>
       </div>
     </td>
@@ -26,18 +26,11 @@
 </template>
 
 <script>
-import { getSongDetail, getSongUrl } from "../../api/api";
 import { formatTime } from "../../utils";
 
 export default {
   props: ["songInfo", "index"],
-  created() {
-    console.log(this.songInfo);
-
-    getSongDetail(this.songInfo.id).then((val) => {
-      console.log(val);
-    });
-  },
+  created() {},
   computed: {
     songTime() {
       return formatTime(new Date(this.songInfo.dt), "mm:ss");
@@ -45,15 +38,19 @@ export default {
   },
   methods: {
     clickPlay() {
-      getSongUrl(this.songInfo.id).then((res) => {
-        console.log(res);
-        // this.$store.commit('setCurrPlayingInfo',res.data.data[0].url)
-        this.$store.commit(
-          "setCurrPlayingInfo",
-          `https://music.163.com/song/media/outer/url?id=${this.songInfo.id}.mp3`
-        );
+      this.$store.commit(
+        "setCurrPlayingInfo",
+        `https://music.163.com/song/media/outer/url?id=${this.songInfo.id}.mp3`
+      );
 
-        this.$store.commit("setSongInfo", this.songInfo);
+      this.$store.commit("setSongInfo", this.songInfo);
+    },
+    goToSong() {
+      this.$router.push({
+        path: "/songDetail",
+        query: {
+          id: this.songInfo.id,
+        },
       });
     },
   },
@@ -75,39 +72,7 @@ table tr td {
   color: rgb(51, 51, 51);
 }
 
-/* .span-index {
-  float: left;
-  width: 100px;
-  text-align: center;
-  height: 32px;
-  line-height: 32px;
-}
-.song-name {
-  float: left;
-  width: 380px;
-  text-align: start;
-  height: 32px;
-  line-height: 32px;
-}
-
-.song-time {
-  float: left;
-  width: 80px;
-  text-align: start;
-  height: 32px;
-  line-height: 32px;
-}
-
-.artist-name {
-  float: left;
-  width: 100px;
-  text-align: center;
-  vertical-align: middle;
-  height: 32px;
-  line-height: 32px;
-} */
-
-.span-index{
+.span-index {
   position: relative;
 }
 
@@ -121,8 +86,11 @@ table tr td {
   top: 0;
 }
 
-.play-icon:hover{
+.play-icon:hover {
   background-position: 0 -128px;
 }
 
+.song-name span:hover {
+  text-decoration: underline;
+}
 </style>
