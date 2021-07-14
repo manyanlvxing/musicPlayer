@@ -1,5 +1,9 @@
 <template>
-  <li class="rankItem" @click="$emit('changerRank', data.id)">
+  <li
+    :class="selectStyle"
+    class="rankItem"
+    @click="$emit('changerRank', data.id)"
+  >
     <img :src="data.coverImgUrl" alt="" />
     <div class="span-container">
       <p class="small">{{ data.name }}</p>
@@ -11,7 +15,14 @@
 
 <script>
 export default {
-  props: ["data"],
+  props: ["data", "currSelectID"],
+  computed: {
+    selectStyle() {
+      return {
+        select: this.currSelectID == this.data.id,
+      };
+    },
+  },
 };
 </script>
 
@@ -22,6 +33,14 @@ export default {
   height: 42px;
   padding: 10px 0 10px 20px;
   text-align: left;
+}
+
+.select {
+  background-color: #e6e6e6;
+}
+
+.rankItem:hover {
+  background-color: #eeeded;
 }
 
 img {

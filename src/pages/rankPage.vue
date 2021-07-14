@@ -7,10 +7,12 @@
           v-for="(v, i) in rankTypes"
           :key="i"
           :data="v"
+          :currSelectID="currRankID"
         ></rankItem>
       </ul>
     </div>
     <div class="right">
+      <rankHeader :rankInfo="rankInfo" :isLoading="isLoading"></rankHeader>
       <albumSongs :albumSongs="typeSongs"></albumSongs>
     </div>
   </div>
@@ -20,6 +22,7 @@
 import rankItem from "../components/rankComp/rankItem.vue";
 import albumSongs from "../components/album/albumSongs.vue";
 import { getTopDetail, getPlayListDetail } from "../api/api";
+import rankHeader from "../components/rankComp/rankHeader.vue";
 
 export default {
   data() {
@@ -27,11 +30,14 @@ export default {
       rankTypes: [],
       typeSongs: [],
       currRankID: 0,
+      rankInfo: {},
+      isLoading: true,
     };
   },
   components: {
     rankItem,
     albumSongs,
+    rankHeader,
   },
   created() {
     getTopDetail().then((res) => {
@@ -42,10 +48,11 @@ export default {
       this.rankTypes = res.data.list;
       this.currRankID = this.rankTypes[0].id;
 
-      getPlayListDetail(this.currRankID).then((res) => {
-        console.log("getPlayListDetail", res);
-        this.typeSongs = res.data.playlist.tracks;
-      });
+      // getPlayListDetail(this.currRankID).then((res) => {
+      //   console.log("getPlayListDetail", res);
+      //   this.typeSongs = res.data.playlist.tracks;
+
+      // });
     });
   },
   methods: {
@@ -56,8 +63,14 @@ export default {
     },
   },
   watch: {
-    currRankID() {
-        
+    currRankID(newVal) {
+      this.isLoading = true;
+      getPlayListDetail(newVal).then((res) => {
+        console.log("getPlayListDetail", res);
+        this.typeSongs = res.data.playlist.tracks;
+        this.rankInfo = res.data;
+        this.isLoading = false;
+      });
     },
   },
 };

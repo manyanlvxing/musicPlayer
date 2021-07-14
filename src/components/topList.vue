@@ -1,6 +1,6 @@
 <template>
   <div>
-    <commonTitle title="榜单"></commonTitle>
+    <commonTitle title="榜单" :routeOptions="routeOptions"></commonTitle>
     <div class="top-list">
       <topListItem
         v-for="(val, index) in topList"
@@ -21,6 +21,9 @@ export default {
   data() {
     return {
       topList: [],
+      routeOptions: {
+        path: "/rank",
+      },
     };
   },
   components: {
