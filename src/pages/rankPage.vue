@@ -12,8 +12,16 @@
       </ul>
     </div>
     <div class="right">
-      <rankHeader :rankInfo="rankInfo" :isLoading="isLoading"></rankHeader>
-      <albumSongs :albumSongs="typeSongs"></albumSongs>
+      <div class="header-container">
+        <rankHeader :rankInfo="rankInfo" :isLoading="isLoading"></rankHeader>
+      </div>
+      <div class="songs-container">
+        <albumSongs :albumSongs="typeSongs"></albumSongs>
+      </div>
+
+      <div class="comments-container">
+        <comments :comments="comments"></comments>
+      </div>
     </div>
   </div>
 </template>
@@ -21,8 +29,13 @@
 <script>
 import rankItem from "../components/rankComp/rankItem.vue";
 import albumSongs from "../components/album/albumSongs.vue";
-import { getTopDetail, getPlayListDetail } from "../api/api";
+import {
+  getTopDetail,
+  getPlayListDetail,
+  getPlayListComment,
+} from "../api/api";
 import rankHeader from "../components/rankComp/rankHeader.vue";
+import comments from "../components/comment/albumComment.vue";
 
 export default {
   data() {
@@ -32,12 +45,14 @@ export default {
       currRankID: 0,
       rankInfo: {},
       isLoading: true,
+      comments: [],
     };
   },
   components: {
     rankItem,
     albumSongs,
     rankHeader,
+    comments,
   },
   created() {
     getTopDetail().then((res) => {
@@ -71,6 +86,10 @@ export default {
         this.rankInfo = res.data;
         this.isLoading = false;
       });
+
+      getPlayListComment(newVal).then((res) => {
+        this.comments = res.data.comments;
+      });
     },
   },
 };
@@ -94,5 +113,17 @@ export default {
 .right {
   float: left;
   width: 740px;
+}
+
+.header-container {
+  padding: 40px 40px 40px 40px;
+}
+
+.songs-container {
+  padding: 0 30px 40px 40px;
+}
+
+.comments-container {
+  padding: 0 30px 40px 40px;
 }
 </style>

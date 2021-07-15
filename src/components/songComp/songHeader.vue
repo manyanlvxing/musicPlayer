@@ -18,6 +18,9 @@
         <div class="detail-album dis grey-label">
           所属专辑：<span class="blue">{{ belongAlbumName }}</span>
         </div>
+        <div class="btn-play-control">
+          <btnPLay @onclickplay="onclickplay" evtName="onclickplay"></btnPLay>
+        </div>
       </div>
       <div class="lysic">
         <p
@@ -38,6 +41,7 @@
 
 <script>
 import loading from "../common/loading.vue";
+import btnPLay from "../common/btnPlay.vue";
 
 import { getLyric } from "../../api/api";
 
@@ -51,10 +55,19 @@ export default {
   props: ["songDetail"],
   components: {
     loading,
+    btnPLay,
   },
   methods: {
     clickSpread() {
       this.isHide = !this.isHide;
+    },
+    onclickplay() {
+        this.$store.commit(
+        "setCurrPlayingInfo",
+        `https://music.163.com/song/media/outer/url?id=${this.songDetail.id}.mp3`
+      );
+
+      this.$store.commit("setSongInfo", this.songDetail);
     },
   },
   created() {
