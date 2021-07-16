@@ -18,7 +18,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang='less' scoped>
+@import url("../../css/bg");
+
 .title-container {
   position: relative;
 }
@@ -26,14 +28,17 @@ export default {
 .common-title {
   width: 645px;
   height: 33px;
-  font-size: 20px;
+  // font-size: 20px;
+
   text-align: start;
   padding: 0 10px 0 34px;
   margin: 20px 0 20px 20px;
   background-repeat: no-repeat;
-  border-bottom: 2px solid #c10d0c;
+  border-bottom: 2px solid #colors[red];
   background-position: -225px -156px;
-  background-image: url("../assets/index.png");
+  // background-image: url("../assets/index.png");
+  font-size: #fontSize[large];
+  background-image: #bgUrls[bg-index];
 }
 
 .span-more {
@@ -42,6 +47,6 @@ export default {
   font-size: 12px;
   right: 20px;
   top: 10px;
-  color: #0c73c2;
+  color: #colors[lightblue];
 }
 </style>

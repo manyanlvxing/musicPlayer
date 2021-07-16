@@ -4,8 +4,9 @@ import App from './App.vue'
 import {store} from './store/store';
 import {router} from './route/index';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
+import '../css/global.css';
 
 new Vue({
   store,
