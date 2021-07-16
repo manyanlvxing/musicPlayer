@@ -19,7 +19,9 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import url("../../css/bg");
+// @import url("../../css/bg");
+// @import url("../../css/font");
+// @import url("../../css/color");
 
 .title-container {
   position: relative;
@@ -28,7 +30,6 @@ export default {
 .common-title {
   width: 645px;
   height: 33px;
-  // font-size: 20px;
 
   text-align: start;
   padding: 0 10px 0 34px;
@@ -36,9 +37,8 @@ export default {
   background-repeat: no-repeat;
   border-bottom: 2px solid #colors[red];
   background-position: -225px -156px;
-  // background-image: url("../assets/index.png");
   font-size: #fontSize[large];
-  background-image: #bgUrls[bg-index];
+  .bg-img('index');
 }
 
 .span-more {

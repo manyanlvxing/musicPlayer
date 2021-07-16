@@ -8,7 +8,6 @@
     </div>
     <base-footer></base-footer>
     <playContrl v-show="$store.state.currSongInfo != null"></playContrl>
-    <!-- <banner v-if="bannerUrls.length > 0" :imgUrls="bannerUrls"></banner> -->
   </div>
 </template>
 
@@ -37,38 +36,38 @@ export default {
     // banner,
   },
   methods: {
-    click1() {
-      //1.直接push path,如果有path属性，则会忽略query
-      // this.$router.push("/friend/2");
+    // click1() {
+    //   //1.直接push path,如果有path属性，则会忽略query
+    //   // this.$router.push("/friend/2");
 
-      //2.push数据对象{path:''}
+    //   //2.push数据对象{path:''}
 
-      // this.$router.push({ path: "/friend/2" });
+    //   // this.$router.push({ path: "/friend/2" });
 
-      //3.push数据对象,name+params
+    //   //3.push数据对象,name+params
 
-      // this.$router.push({
-      //   name: "friend",
-      //   params: {
-      //     id: 10,
-      //   },
-      // });
+    //   // this.$router.push({
+    //   //   name: "friend",
+    //   //   params: {
+    //   //     id: 10,
+    //   //   },
+    //   // });
 
-      //4. push数据对象, path+query(有path出现params会被忽略掉)
+    //   //4. push数据对象, path+query(有path出现params会被忽略掉)
 
-      this.$router.push({
-        path: "/friend/2",
-        query: {
-          name: "queryTest",
-        },
-      });
-    },
-    click2() {
-      this.$router.push("/avatar/2");
-    },
-    click3() {
-      this.$router.push("/avatar/3");
-    },
+    //   this.$router.push({
+    //     path: "/friend/2",
+    //     query: {
+    //       name: "queryTest",
+    //     },
+    //   });
+    // },
+    // click2() {
+    //   this.$router.push("/avatar/2");
+    // },
+    // click3() {
+    //   this.$router.push("/avatar/3");
+    // },
   },
 
   created() {},
