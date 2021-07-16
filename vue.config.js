@@ -1,3 +1,10 @@
+const path = require('path');
+
 module.exports = {
-    publicPath: '/dist'
+  pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: 'less',
+      patterns: [path.resolve(__dirname, './css/global.less')]
+    }
+  }
 }
