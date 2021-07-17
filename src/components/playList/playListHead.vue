@@ -41,7 +41,7 @@
 import avatar from "../common/avatar.vue";
 import loading from "../common/loading.vue";
 
-import { formatTime } from "../../utils";
+import { formatTime } from "../../utils/utils";
 
 export default {
   components: {

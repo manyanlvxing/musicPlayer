@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import { getNewDishs, getTopDetail } from "../api/api";
+import { getNewDishs, getTopDetail } from "../../api/api";
 import dishCard from "./dishCard.vue";
-import commonTitle from "./commonTitle.vue";
-import commonArrow from "./control/commonArrow.vue";
+import commonTitle from "../common/commonTitle.vue";
+import commonArrow from "../common/commonArrow.vue";
 
 export default {
   data() {

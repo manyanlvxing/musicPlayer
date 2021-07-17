@@ -20,7 +20,7 @@
       <div class="bar-red player-bar-img" :style="{ width: currWidth }"></div>
       <div class="bar-circal" :style="{ left: currWidth }"></div>
 
-      <span>{{ curr }}/{{ duration }}</span>
+      <span class="play-time">{{ curr }}/{{ duration }}</span>
     </div>
     <div class="player-right"></div>
     <audio ref="playControl" :src="currMusic"></audio>
@@ -29,7 +29,7 @@
 
 <script>
 import { mapGetters, mapState } from "vuex";
-import { formatTime } from "../../utils";
+import { formatTime } from "../../utils/utils";
 
 export default {
   data() {
@@ -56,7 +56,7 @@ export default {
           this.maxWidth * (audio.currentTime / audio.duration)
         }px`;
 
-        this.currTime = audio.currTime;
+        this.currTime = audio.currentTime;
         this.totalTime = audio.duration;
       };
 
@@ -78,13 +78,11 @@ export default {
     },
     playMusic() {
       // let audio = this.$refs.playControl;
-
       // audio.oncanplay = function () {
       //   console.log("canplay");
       //   audio.play();
       //   audio.volume = 0.4;
       // };
-
       // audio.ontimeupdate = () => {
       //   // console.log("timeUpdate", audio.currentTime, audio.duration);
       //   this.currWidth = `${
@@ -108,10 +106,10 @@ export default {
       };
     },
     curr() {
-      return formatTime(new Date(this.currTime * 1000), "mm/ss");
+      return formatTime(new Date(this.currTime * 1000), "mm:ss");
     },
     duration() {
-      return formatTime(new Date(this.totalTime * 1000), "mm/ss");
+      return formatTime(new Date(this.totalTime * 1000), "mm:ss");
     },
   },
   watch: {
@@ -137,30 +135,26 @@ export default {
 <style lang='less' scoped>
 @playerbartop: 15px;
 
+@colorSongName: #e8e8e8;
+@colorArtistName: #9b9b9b;
+
 .player-background-img {
-  background-image: url("../../assets/playbar.png");
+  background-image: url(~assets/playbar.png);
   background-repeat: repeat-x;
 }
 
 .player-bar-img {
-  background-image: url("../../assets/statbar.png");
+  background-image: url(~assets/statbar.png);
 }
 
 .playContrl {
   height: 45px;
   width: 100%;
+  min-width: 1000px;
   position: fixed;
   bottom: 0px;
   display: flex;
   background-position: 0 0;
-}
-
-.bg {
-  float: left;
-  width: 700px;
-  height: 53px;
-  margin-left: 20px;
-  position: relative;
 }
 
 .stop {
@@ -232,37 +226,51 @@ export default {
   margin-top: 10px;
 }
 
-.albumAvatar img {
-  width: 100%;
-  height: 100%;
+.albumAvatar {
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .bg {
+  float: left;
+  width: 700px;
+  height: 53px;
+  margin-left: 20px;
+  position: relative;
   text-align: start;
+  .songname {
+    line-height: 33px;
+    color: @colorSongName;
+    font-size: 10px;
+    text-shadow: 0 1px 0 #171717;
+    margin-right: 20px;
+  }
+  .artistname {
+    color: @colorArtistName;
+    line-height: 33px;
+    font-size: 10px;
+    text-shadow: 0 1px 0 #171717;
+  }
 }
 
-.bg .songname {
-  line-height: 33px;
-  color: #e8e8e8;
-  font-size: 10px;
-  text-shadow: 0 1px 0 #171717;
-  margin-right: 20px;
-}
-
-.bg .artistname {
-  color: #9b9b9b;
-  line-height: 33px;
-  font-size: 10px;
-  text-shadow: 0 1px 0 #171717;
-}
 
 .bar-circal {
   position: absolute;
   width: 22px;
   height: 24px;
-  background-image: url("../../assets/iconall.png");
+  background-image: url(~assets/iconall.png);
   background-position: 0px -250px;
   top: 24px;
   left: 0px;
+}
+
+.play-time {
+  font-size: 12px;
+  position: absolute;
+  right: 160px;
+  color: @colorArtistName;
+  top: 27px;
 }
 </style>

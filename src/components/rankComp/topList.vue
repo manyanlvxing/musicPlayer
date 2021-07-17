@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import { getTopDetail } from "../api/api";
+import { getTopDetail } from "../../api/api";
 
 import topListItem from "./topListItem.vue";
-import commonTitle from "./commonTitle.vue";
+import commonTitle from "../common/commonTitle.vue";
 
 export default {
   data() {
@@ -51,7 +51,7 @@ export default {
   /* border: 1px solid lightgrey; */
   justify-content: space-around;
   background-color: #f5f5f5;
-  background-image: url("../assets/index_bill.png");
+  background-image: url(~assets/index_bill.png);
   margin: 0 auto;
 }
 </style>

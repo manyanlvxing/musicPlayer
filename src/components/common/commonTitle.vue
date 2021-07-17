@@ -38,13 +38,13 @@ export default {
   border-bottom: 2px solid #colors[red];
   background-position: -225px -156px;
   font-size: #fontSize[large];
-  .bg-img('index');
+  background-image: url(~assets/index.png);
 }
 
 .span-more {
   position: absolute;
   float: right;
-  font-size: 12px;
+  font-size: #fontSize[small];
   right: 20px;
   top: 10px;
   color: #colors[lightblue];

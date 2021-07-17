@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { formatTime } from "../../utils";
+import { formatTime } from "../../utils/utils";
 export default {
   props: ["comment"],
   computed: {

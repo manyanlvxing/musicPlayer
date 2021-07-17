@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import navWrap from "./navWrap.vue";
-import navHeader from "./navHeader.vue";
+import navWrap from "./nav/navWrap.vue";
+import navHeader from "./nav/navHeader.vue";
 
 export default {
   name: "base-head",

@@ -5,31 +5,31 @@ import Vue from 'vue';
 Vue.use(VueRouter);
 
 const routes = [
-    {
-        path: '/friend/:id',
-        name: 'friend',
-        //重定向
-        // redirect: '/friend/:id',
-        //别名
-        alias: '/home/:id',
-        component: () => import('../components/home.vue')
-    },
-    {
-        path: '/avatar/:index',
-        name: 'avatar',
-        component: () => import('../components/avatar.vue'),
-        //1. props: true
-        // route.params 将会被设置为组件属性。
+    // {
+    //     path: '/friend/:id',
+    //     name: 'friend',
+    //     //重定向
+    //     // redirect: '/friend/:id',
+    //     //别名
+    //     alias: '/home/:id',
+    //     component: () => import('../components/home.vue')
+    // },
+    // {
+    //     path: '/avatar/:index',
+    //     name: 'avatar',
+    //     component: () => import('../components/avatar.vue'),
+    //     //1. props: true
+    //     // route.params 将会被设置为组件属性。
 
-        //2.也可以直接使用对象，直接赋值到组件的属性上
-        // props: {
-        //     test: 'test',
-        //     val: 'val'
-        // }
+    //     //2.也可以直接使用对象，直接赋值到组件的属性上
+    //     // props: {
+    //     //     test: 'test',
+    //     //     val: 'val'
+    //     // }
 
-        //3。使用函数
-        props: (route) => ({index: route.params.index})
-    },
+    //     //3。使用函数
+    //     props: (route) => ({index: route.params.index})
+    // },
     {
         //专辑详情界面
         path: '/ablum',

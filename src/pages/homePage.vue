@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import banner from "../components/banner.vue";
-import playList from "../components/playList/playList.vue";
-import newDish from "../components/newDish.vue";
-import topList from "../components/topList.vue";
+import banner from "components/banner.vue";
+import playList from "components/playList/playList.vue";
+import newDish from "components/newDishes/newDish.vue";
+import topList from "components/rankComp/topList.vue";
 
 import { getBanner } from "../api/api";
 

@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { formatTime } from "../../utils";
+import { formatTime } from "../../utils/utils";
 
 export default {
   props: ["songInfo", "index"],
@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style scoped>
-@import url("../../../css/iconfont.css");
+@import url(~css/iconfont.css);
 
 .songLi {
   overflow: hidden;

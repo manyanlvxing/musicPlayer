@@ -4,7 +4,7 @@
 }
 
 .mask-cover {
-    background-image: url('../src/assets/coverall.png');
+    background-image: url(~assets/coverall.png);
     background-repeat: no-repeat;
     background-position: 0px -570px;
 }
@@ -12,25 +12,31 @@
 
 
 .span-cover {
-    background-image: url('../src/assets/coverall.png');
+    background-image: url(~assets/coverall.png);
     background-repeat: no-repeat;
     background-position: 0px -986px;
 }
 
-li{
+li {
     list-style: none;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.small{
+.small {
     font-size: 12px;
 }
 
-.text-start{
+.text-start {
     text-align: start;
 }
 
-.clear-fix::after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clear-fix::after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}

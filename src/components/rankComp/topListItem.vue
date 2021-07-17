@@ -33,8 +33,8 @@
 </template>
 
 <script>
-import { getSongDetail, getPlayerListDetail } from "../api/api";
-import loading from "../components/common/loading.vue";
+import { getSongDetail, getPlayerListDetail } from "../../api/api";
+import loading from "../common/loading.vue";
 
 export default {
   props: ["topListInfo"],
@@ -142,7 +142,7 @@ dt div img {
   right: 10px;
   top: 6px;
   background-position: 0 -103px;
-  background-image: url("../assets/table.png");
+  background-image: url(~assets/table.png);
   width: 17px;
   height: 17px;
 }

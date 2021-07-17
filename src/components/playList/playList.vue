@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import commonTitle from "../commonTitle.vue";
+import commonTitle from "../common/commonTitle.vue";
 import playListItem from "./playListItem.vue";
 
 import { getPlayerList } from "../../api/api";

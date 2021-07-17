@@ -26,7 +26,7 @@
 
 <script>
 import redLineTitle from "../components/common/redLineTitle.vue";
-import dishCard from "../components/dishCard.vue";
+import dishCard from "../components/newDishes/dishCard.vue";
 
 import { getNewDishs, getAllNewDishes } from "../api/api";
 

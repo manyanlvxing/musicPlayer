@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style scoped>
-@import url("../css/init.css");
+@import url("css/init.css");
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

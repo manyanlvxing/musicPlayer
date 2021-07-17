@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { getAlbumDetail } from "../api/api";
+import { getAlbumDetail } from "../../api/api";
 
 export default {
   props: {

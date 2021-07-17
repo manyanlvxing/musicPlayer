@@ -17,7 +17,7 @@
 
 <script>
 import loading from "../common/loading.vue";
-import { formatTime } from "../../utils";
+import { formatTime } from "../../utils/utils";
 
 import btnPLay from "../common/btnPlay.vue";
 
@@ -128,7 +128,7 @@ img {
   background-position: 0 -1588px;
   width: 31px;
   height: 31px;
-  background-image: url("../../assets/button2.png");
+  background-image: url(~assets/button2.png);
 }
 
 .btns {
